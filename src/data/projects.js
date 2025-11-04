@@ -1,14 +1,5 @@
 export const projects = [
     {
-        id: 2,
-        title: "Data Analysis Dashboard",
-        description: "Statistical analysis and visualization tool for exploring correlations in datasets with interactive charts",
-        technologies: ["Python", "Pandas", "Matplotlib","Plotly","Scikit-learn"],
-        github: "https://github.com/CSwan300",
-        // demo: "#",
-        image: "./images/placeholder.png",
-    },
-    {
         id: 3,
         title: "Language Explorer",
         description: "Collection of projects exploring various  programming languages and their ecosystems",
@@ -22,7 +13,7 @@ export const projects = [
         title: "Portfolio Website",
         description: "portfolio showcasing projects and skills with a responsive design",
         technologies: ["React", "Tailwind CSS", "JavaScript"],
-        github: "https://github.com/CSwan300",
+        github: "https://github.com/CSwan300/CampbellSwanPortfolio",
         demo: "https://campbellswan.vercel.app/",
         image: "./images/website.png",
     },
