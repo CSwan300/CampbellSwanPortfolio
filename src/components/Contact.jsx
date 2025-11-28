@@ -10,44 +10,44 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
                     {/* Email */}
-                    <div className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 hover:border-purple-500/60 transition text-center hover:transform hover:scale-105 duration-300">
+                    <a
+                        href={`mailto:${personalInfo.email}`}
+                        className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 hover:border-purple-500/60 transition text-center hover:transform hover:scale-105 duration-300 block no-underline"
+                    >
                         <div className="text-4xl mb-4">✉️</div>
                         <h3 className="text-xl font-semibold mb-2 text-blue-300">Email</h3>
-                        <a
-                            href={`mailto:${personalInfo.email}`}
-                            className="text-gray-300 hover:text-purple-400 transition break-all"
-                        >
+                        <span className="text-gray-300 hover:text-purple-400 transition break-all">
                             {personalInfo.email}
-                        </a>
-                    </div>
+                        </span>
+                    </a>
 
                     {/* GitHub */}
-                    <div className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 hover:border-purple-500/60 transition text-center hover:transform hover:scale-105 duration-300">
+                    <a
+                        href={personalInfo.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 hover:border-purple-500/60 transition text-center hover:transform hover:scale-105 duration-300 block no-underline"
+                    >
                         <div className="text-4xl mb-4">🔗</div>
                         <h3 className="text-xl font-semibold mb-2 text-purple-300">GitHub</h3>
-                        <a
-                            href={personalInfo.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-300 hover:text-blue-400 transition truncate"
-                        >
+                        <span className="text-gray-300 hover:text-blue-400 transition truncate block">
                             CSwan300
-                        </a>
-                    </div>
+                        </span>
+                    </a>
 
                     {/* LinkedIn */}
-                    <div className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 hover:border-purple-500/60 transition text-center hover:transform hover:scale-105 duration-300">
+                    <a
+                        href={personalInfo.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 hover:border-purple-500/60 transition text-center hover:transform hover:scale-105 duration-300 block no-underline"
+                    >
                         <div className="text-4xl mb-4">💼</div>
                         <h3 className="text-xl font-semibold mb-2 text-green-300">LinkedIn</h3>
-                        <a
-                            href={personalInfo.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-300 hover:text-green-400 transition truncate"
-                        >
+                        <span className="text-gray-300 hover:text-green-400 transition truncate block">
                             campbell-swan
-                        </a>
-                    </div>
+                        </span>
+                    </a>
                 </div>
 
                 {/* Contact Message */}
