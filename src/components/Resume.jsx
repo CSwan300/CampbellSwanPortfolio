@@ -2,7 +2,6 @@ import { personalInfo } from '../data/personalInfo';
 
 const Resume = () => {
     const handleDownload = () => {
-        // Create a simple file download link
         const link = document.createElement('a');
         link.href = `/${personalInfo.resumeFile}`;
         link.download = personalInfo.resumeFile;
@@ -18,16 +17,17 @@ const Resume = () => {
                     Resume
                 </h2>
 
-                <div className="flex flex-col lg:flex-row gap-12 items-center">
+                {/* Make columns stretch and share height */}
+                <div className="flex flex-col lg:flex-row gap-12 items-stretch">
                     {/* Left - Content */}
-                    <div className="flex-1 space-y-6">
-                        <div className="bg-slate-700 p-8 rounded-lg border border-blue-500/30">
+                    <div className="flex-1 flex">
+                        <div className="bg-slate-700 p-8 rounded-lg border border-blue-500/30 flex-1 flex flex-col">
                             <h3 className="text-2xl font-semibold mb-4 text-blue-300">Campbell Swan</h3>
                             <p className="text-gray-300 mb-6">
                                 Computer Science (Software Development) student with a strong foundation in software development, data analysis, and emerging technologies.
                             </p>
 
-                            <div className="space-y-6">
+                            <div className="space-y-6 flex-1">
                                 {/* Education Section */}
                                 <div>
                                     <h4 className="text-lg font-semibold text-purple-300 mb-3">Education</h4>
@@ -47,7 +47,7 @@ const Resume = () => {
                                         <li>✓ Data Analysis</li>
                                         <li>✓ Git & GitHub</li>
                                         <li>✓ JVM Languages</li>
-                                        <li>✓ Docker,K8s and DevOps Technologies </li>
+                                        <li>✓ Docker, K8s and DevOps Technologies</li>
                                     </ul>
                                 </div>
                             </div>
@@ -55,9 +55,9 @@ const Resume = () => {
                     </div>
 
                     {/* Right - Download Section */}
-                    <div className="flex-1">
-                        <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-12 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
-                            <div className="text-center">
+                    <div className="flex-1 flex">
+                        <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-12 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 flex-1 flex flex-col">
+                            <div className="text-center flex-1 flex flex-col justify-center">
                                 <svg className="w-20 h-20 mx-auto mb-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 0l-6 6m6-6l6 6" />
                                 </svg>

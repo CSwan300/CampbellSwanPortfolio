@@ -77,14 +77,6 @@ const Footer = ({ scrollToSection }) => {
                     </div>
 
                     {/* Built With */}
-                    <div>
-                        <h4 className="text-lg font-semibold text-green-300 mb-4">Built With</h4>
-                        <ul className="space-y-2 text-gray-400 text-sm">
-                            <li>⚛️ React</li>
-                            <li>🎨 Tailwind CSS</li>
-                            <li>⚡ Vite</li>
-                        </ul>
-                    </div>
                 </div>
 
                 {/* Divider */}
