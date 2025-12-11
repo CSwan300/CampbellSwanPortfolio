@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+pnpm-workspace.yaml
+
+# Build output
+dist/
+build/
+out/
+.next/
+.turbo/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Misc
+.cache/
+.parcel-cache/
+.vercel/
