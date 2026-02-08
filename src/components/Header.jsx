@@ -19,7 +19,7 @@ const Header = ({ scrollToSection }) => {
                     className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 cursor-pointer"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
-                    CJFS
+                    SWAN
                 </div>
 
                 {/* Desktop Navigation */}
