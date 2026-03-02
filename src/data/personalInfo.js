@@ -1,6 +1,6 @@
 export const personalInfo = {
     name: "Campbell Swan",
-    title: "Technology Enthusiast",
+    title: "Avid Learner And Tech Enthusiast",
     email: "campbellswan8@gmail.com",
     github: "https://github.com/CSwan300",
     linkedin: "https://www.linkedin.com/in/campbell-swan/",
