@@ -20,8 +20,7 @@ const Hero = ({ scrollToSection }) => {
                         {personalInfo.title}
                     </p>
                     <p className="text-base md:text-lg text-slate-100 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up-delay-2 drop-shadow-sm">
-                        Building innovative solutions through code. Passionate about tech,
-                        exploring new technologies, and creating meaningful digital experiences.
+                      Building useful things with code. I’m passionate about technology, enjoy experimenting with new tools and frameworks, and love turning ideas into practical, enjoyable digital experiences, and I’m actively looking for internships or placements where I can do more of this on real projects.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up-delay-3">
                         <button
