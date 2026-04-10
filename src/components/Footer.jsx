@@ -4,35 +4,33 @@ const Footer = ({ scrollToSection }) => {
     const currentYear = new Date().getFullYear();
 
     const quickLinks = [
-        { label: 'About', id: 'about' },
+        { label: 'About',    id: 'about'    },
         { label: 'Projects', id: 'projects' },
-        { label: 'Contact', id: 'contact' },
-        { label: 'Resume', id: 'resume' },
+        { label: 'Contact',  id: 'contact'  },
+        { label: 'Resume',   id: 'resume'   },
     ];
 
     return (
-        <footer className="bg-gradient-to-b from-slate-900 to-slate-950 text-white border-t border-blue-500/30">
-            <div className="max-w-6xl mx-auto px-4 py-12">
-                <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <footer className="footer">
+            <div className="footer__inner">
+                <div className="footer__grid">
                     {/* Brand */}
                     <div>
-                        <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
-                            Campbell Swan
-                        </h3>
-                        <p className="text-gray-400 text-sm">
+                        <span className="footer__brand-name">Campbell Swan</span>
+                        <p className="footer__brand-tagline">
                             Building the future through code, suffering and occasionally innovation.
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-lg font-semibold text-blue-300 mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
+                        <h4 className="footer__col-title footer__col-title--blue">Quick Links</h4>
+                        <ul className="footer__link-list">
                             {quickLinks.map((link) => (
                                 <li key={link.id}>
                                     <button
+                                        className="footer__link-btn"
                                         onClick={() => scrollToSection(link.id)}
-                                        className="text-gray-400 hover:text-purple-400 transition"
                                     >
                                         {link.label}
                                     </button>
@@ -41,16 +39,16 @@ const Footer = ({ scrollToSection }) => {
                         </ul>
                     </div>
 
-                    {/* Social Links */}
+                    {/* Connect */}
                     <div>
-                        <h4 className="text-lg font-semibold text-purple-300 mb-4">Connect</h4>
-                        <ul className="space-y-2">
+                        <h4 className="footer__col-title footer__col-title--purple">Connect</h4>
+                        <ul className="footer__link-list">
                             <li>
                                 <a
                                     href={personalInfo.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-blue-400 transition"
+                                    className="footer__link footer__link--blue"
                                 >
                                     GitHub
                                 </a>
@@ -60,7 +58,7 @@ const Footer = ({ scrollToSection }) => {
                                     href={personalInfo.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-green-400 transition"
+                                    className="footer__link footer__link--green"
                                 >
                                     LinkedIn
                                 </a>
@@ -68,24 +66,21 @@ const Footer = ({ scrollToSection }) => {
                             <li>
                                 <a
                                     href={`mailto:${personalInfo.email}`}
-                                    className="text-gray-400 hover:text-purple-400 transition"
+                                    className="footer__link footer__link--purple"
                                 >
                                     Email
                                 </a>
                             </li>
                         </ul>
                     </div>
-
-                    {/* Built With */}
                 </div>
 
-                {/* Divider */}
-                <div className="border-t border-slate-700 pt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 text-sm">
-                            © {currentYear} {personalInfo.name}. All rights reserved.
-                        </p>
-                    </div>
+                <hr className="footer__divider" />
+
+                <div className="footer__bottom">
+                    <p className="footer__copyright">
+                        © {currentYear} {personalInfo.name}. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>

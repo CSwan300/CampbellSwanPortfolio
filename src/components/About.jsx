@@ -1,43 +1,34 @@
 import { personalInfo } from '../data/personalInfo';
 
+const SKILLS = [
+    'Puzzles', 'Chess', 'Python', 'Rugby',
+    'Data Analysis', 'Backend Development',
+    'Problem Solving', 'Git & GitHub', 'Golf',
+];
+
+const STATS = [
+    { label: 'Projects Completed',       value: '10+', modifier: 'blue'   },
+    { label: 'Languages I Am Familiar With', value: '8+', modifier: 'purple' },
+    { label: 'GitHub Repositories',      value: '15+', modifier: 'green'  },
+    { label: 'My Golf Handicap',          value: '33+', modifier: 'pink'   },
+];
+
 const About = () => {
     return (
-        <section
-            id="about"
-            className="py-16 bg-gradient-to-b from-slate-800 to-slate-900 text-white"
-        >
-            <div className="max-w-6xl mx-auto px-4">
-                <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">
-                    About Me
-                </h2>
+        <section id="about" className="portfolio-section about">
+            <div className="portfolio-container">
+                <h2 className="portfolio-section-title">About Me</h2>
 
-                <div className="grid md:grid-cols-2 gap-12 items-stretch">
-                    {/* Left side - Text */}
-                    <div className="flex flex-col justify-between bg-slate-700/40 rounded-lg p-6">
-                        <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                            {personalInfo.bio}
-                        </p>
+                <div className="about__grid">
+                    {/* Left — text */}
+                    <div className="about__text-card">
+                        <p className="about__bio">{personalInfo.bio}</p>
 
-                        <div className="space-y-4">
-                            <h3 className="text-2xl font-semibold text-purple-300">
-                                Skills & Interests
-                            </h3>
-                            <ul className="grid grid-cols-2 gap-3">
-                                {[
-                                    'Puzzles',
-                                    'Chess',
-                                    'Python',
-                                    'Rugby',
-                                    'Data Analysis',
-                                    'Backend Development',
-                                    'Problem Solving',
-                                    'Git & GitHub',
-                                    'Golf',
-                                ].map((skill, index) => (
-                                    <li
-                                        key={index}
-                                        className="bg-slate-700 px-4 py-2 rounded-lg text-blue-300 border border-blue-500/30 hover:border-blue-500/60 transition"
-                                    >
+                        <div>
+                            <h3 className="about__skills-heading">Skills &amp; Interests</h3>
+                            <ul className="about__skills-list">
+                                {SKILLS.map((skill) => (
+                                    <li key={skill} className="about__skill-item">
                                         ✓ {skill}
                                     </li>
                                 ))}
@@ -45,31 +36,21 @@ const About = () => {
                         </div>
                     </div>
 
-                    {/* Right side - Decorative */}
-                    <div className="relative flex">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur-xl opacity-20"></div>
-                        <div className="relative bg-slate-700 p-8 rounded-lg border border-blue-500/30 flex-1 flex flex-col">
-                            <h3 className="text-2xl font-semibold mb-6 text-purple-300">
-                                By The Numbers
-                            </h3>
-                            <div className="space-y-4 flex-1">
-                                <div className="flex justify-between items-center pb-4 border-b border-slate-600">
-                                    <span className="text-gray-300">Projects Completed</span>
-                                    <span className="text-2xl font-bold text-blue-400">10+</span>
-                                </div>
-                                <div className="flex justify-between items-center pb-4 border-b border-slate-600">
-                                    <span className="text-gray-300">Languages I Am Familiar With</span>
-                                    <span className="text-2xl font-bold text-purple-400">8+</span>
-                                </div>
-                                <div className="flex justify-between items-center pb-4 border-b border-slate-600">
-                                    <span className="text-gray-300">GitHub Repositories</span>
-                                    <span className="text-2xl font-bold text-green-400">15+</span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-gray-300">My Golf Handicap</span>
-                                    <span className="text-2xl font-bold text-pink-400">33+</span>
-                                </div>
-                            </div>
+                    {/* Right — stats */}
+                    <div className="about__stats-card">
+                        <div className="about__stats-glow" />
+                        <div className="about__stats-inner">
+                            <h3 className="about__stats-heading">By The Numbers</h3>
+                            <dl className="about__stats-list">
+                                {STATS.map(({ label, value, modifier }) => (
+                                    <div key={label} className="about__stat-row">
+                                        <dt className="about__stat-label">{label}</dt>
+                                        <dd className={`about__stat-value about__stat-value--${modifier}`}>
+                                            {value}
+                                        </dd>
+                                    </div>
+                                ))}
+                            </dl>
                         </div>
                     </div>
                 </div>

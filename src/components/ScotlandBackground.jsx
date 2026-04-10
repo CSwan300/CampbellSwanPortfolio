@@ -1,24 +1,22 @@
-import React from 'react';
-import './ScottishBackground.css';
-
-export const ScottishBackground = () => {
+const ScottishBackground = () => {
     return (
         <div className="scottish-bg-absolute">
-            {/* Animated sky gradient */}
-            <div className="sky-gradient"></div>
+            <div className="sky-gradient" />
 
-            {/* Floating thistles */}
             <div className="thistle thistle-1">🌿</div>
             <div className="thistle thistle-2">🌿</div>
             <div className="thistle thistle-3">🌿</div>
             <div className="thistle thistle-4">🌿</div>
 
-            {/* Animated mountains */}
             <div className="mountains">
-                <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" className="mountain-svg">
+                <svg
+                    viewBox="0 0 1200 400"
+                    preserveAspectRatio="xMidYMid slice"
+                    className="mountain-svg"
+                >
                     <defs>
                         <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#8B6F47', stopOpacity: 1 }} />
+                            <stop offset="0%"   style={{ stopColor: '#8B6F47', stopOpacity: 1 }} />
                             <stop offset="100%" style={{ stopColor: '#5A4A3A', stopOpacity: 1 }} />
                         </linearGradient>
                     </defs>
@@ -30,39 +28,27 @@ export const ScottishBackground = () => {
                 </svg>
             </div>
 
-            {/* Animated tartan pattern overlay */}
-            {/*<div className="tartan-overlay"></div>*/}
-
-            {/* Celtic spiral decoration */}
             <div className="celtic-spiral">
                 <svg width="120" height="120" viewBox="0 0 120 120">
                     <path
                         d="M 60 10 Q 80 30 80 60 Q 80 90 60 100 Q 40 90 40 60 Q 40 30 60 10"
-                        stroke="#D4A574"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity="0.7"
+                        stroke="#D4A574" strokeWidth="2" fill="none" opacity="0.7"
                     />
                     <path
                         d="M 60 20 Q 75 35 75 60 Q 75 85 60 95"
-                        stroke="#D4A574"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity="0.7"
+                        stroke="#D4A574" strokeWidth="2" fill="none" opacity="0.7"
                     />
                 </svg>
             </div>
 
-            {/* Floating particles */}
-            <div className="particle particle-1"></div>
-            <div className="particle particle-2"></div>
-            <div className="particle particle-3"></div>
-            <div className="particle particle-4"></div>
-            <div className="particle particle-5"></div>
+            <div className="particle particle-1" />
+            <div className="particle particle-2" />
+            <div className="particle particle-3" />
+            <div className="particle particle-4" />
+            <div className="particle particle-5" />
 
-            {/* Light mist effect */}
-            <div className="mist mist-1"></div>
-            <div className="mist mist-2"></div>
+            <div className="mist mist-1" />
+            <div className="mist mist-2" />
         </div>
     );
 };

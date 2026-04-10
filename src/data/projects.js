@@ -1,5 +1,16 @@
 export const projects = [
     {
+        id: 2,
+        title: "Yoga Booking Site",
+        description: "A Fullstack WebApp Created for a university module based on a yoga booking site - note deployed on render free tier so takes about 50 seconds to warm up ",
+        technologies: ["Javascript", "Mustache.js", "css", "Node.js","Express.js","JWT","CI/CD"],
+        github: "https://github.com/CSwan300/YogaBookingSite",
+        demo: "https://campbellswanwebdev2courseworklivedemo.onrender.com/",
+        image: "./images/Yoga.png",
+    },
+
+
+    {
         id: 3,
         title: "Language Explorer",
         description: "Collection of projects exploring various  programming languages and their ecosystems",
@@ -12,7 +23,7 @@ export const projects = [
         id: 4,
         title: "Portfolio Website",
         description: "portfolio showcasing projects and skills with a responsive design",
-        technologies: ["React", "Tailwind CSS", "JavaScript"],
+        technologies: ["React", "Tailwind CSS", "JavaScript","Vite"],
         github: "https://github.com/CSwan300/CampbellSwanPortfolio",
         demo: "https://campbellswan.vercel.app/",
         image: "./images/website.png",

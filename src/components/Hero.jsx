@@ -3,49 +3,51 @@ import ScotlandBackground from './ScotlandBackground';
 
 const Hero = ({ scrollToSection }) => {
     return (
-        <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white min-h-screen flex items-center overflow-hidden">
-            {/* Background animation layer */}
+        <section className="hero">
             <ScotlandBackground />
+            <div className="hero__overlay" />
 
-            {/* Darker overlay for maximum readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/30 z-5"></div>
-
-            {/* Content on top */}
-            <div className="relative z-10 max-w-6xl mx-auto px-4 w-full">
-                <div className="text-center">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-slate-100 to-slate-300 animate-fade-in-up drop-shadow-2xl shadow-black/50">
+            <div className="hero__content">
+                <div>
+                    <h1 className="hero__title animate-fade-in-up">
                         {personalInfo.name}
                     </h1>
-                    <p className="text-xl md:text-3xl text-slate-200 mb-8 animate-fade-in-up-delay-1 font-semibold drop-shadow-md">
+
+                    <p className="hero__subtitle animate-fade-in-up-delay-1">
                         {personalInfo.title}
                     </p>
-                    <p className="text-base md:text-lg text-slate-100 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up-delay-2 drop-shadow-sm">
-                      Building useful things with code. I’m passionate about technology, enjoy experimenting with new tools and frameworks, and love turning ideas into practical, enjoyable digital experiences, and I’m actively looking for internships or placements where I can do more of this on real projects.
+
+                    <p className="hero__bio animate-fade-in-up-delay-2">
+                        Building useful things with code. I'm passionate about technology, enjoy
+                        experimenting with new tools and frameworks, and love turning ideas into
+                        practical, enjoyable digital experiences, and I'm actively looking for
+                        internships or placements where I can do more of this on real projects.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up-delay-3">
+
+                    <div className="hero__cta-group animate-fade-in-up-delay-3">
                         <button
+                            className="hero__btn-secondary"
                             onClick={() => scrollToSection('projects')}
-                            className="px-8 py-3 bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-slate-500/60 transition-all duration-300 transform hover:scale-105 active:scale-95 hover:from-slate-600 hover:via-slate-500 hover:to-slate-400 backdrop-blur-sm"
                         >
                             View My Work
                         </button>
                         <button
+                            className="hero__btn-secondary"
                             onClick={() => scrollToSection('contact')}
-                            className="px-8 py-3 border-2 border-slate-400 text-slate-100 rounded-xl font-semibold hover:bg-slate-800/50 hover:border-slate-300 transition-all duration-300 backdrop-blur-sm hover:shadow-lg hover:shadow-slate-400/30"
                         >
                             Get In Touch
                         </button>
                     </div>
+
                     <div
-                        className="flex justify-center mt-16 cursor-pointer animate-bounce-subtle"
+                        className="hero__scroll-indicator animate-bounce-subtle"
                         onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
                         role="button"
                         tabIndex={0}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') e.currentTarget.click();
-                        }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.click(); }}
+                        aria-label="Scroll down"
                     >
-                        <svg className="w-6 h-6 text-slate-200 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="hero__scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7 7 7-7" />
                         </svg>
                     </div>
