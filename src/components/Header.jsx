@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Header = ({ scrollToSection }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
 
     const navItems = [
         { label: 'About',    id: 'about'    },
@@ -9,6 +10,10 @@ const Header = ({ scrollToSection }) => {
         { label: 'Contact',  id: 'contact'  },
         { label: 'Resume',   id: 'resume'   },
     ];
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    }, [isDarkMode]);
 
     return (
         <header className="header">
@@ -34,13 +39,23 @@ const Header = ({ scrollToSection }) => {
                     ))}
                 </ul>
 
-                <button
-                    className="header__mobile-toggle"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle mobile menu"
-                >
-                    ☰
-                </button>
+                <div className="header__controls">
+                    <button
+                        className="header__theme-toggle"
+                        onClick={() => setIsDarkMode(!isDarkMode)}
+                        aria-label="Toggle theme"
+                    >
+                        {isDarkMode ? '☀️' : '🌙'}
+                    </button>
+
+                    <button
+                        className="header__mobile-toggle"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle mobile menu"
+                    >
+                        ☰
+                    </button>
+                </div>
             </nav>
 
             {isMobileMenuOpen && (
