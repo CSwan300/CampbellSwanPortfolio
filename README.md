@@ -190,14 +190,3 @@ This project is open source and available for personal and educational purposes.
 
 ---
 
-<div align="center">
-
-**Built with ❤️ by Campbell Swan**
-
-![Status](https://img.shields.io/badge/Status-Active-success?style=flat)
-![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen?style=flat)
-
-⭐ Star this repository if you found it helpful!
-
-</div>
-
