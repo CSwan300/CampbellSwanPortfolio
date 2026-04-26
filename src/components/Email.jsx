@@ -23,12 +23,6 @@ const ContactForm = () => {
         setIsSending(true);
         setStatusMessage('');
 
-        // DEBUG: Check what is actually being sent
-        console.log("--- Sending Attempt ---");
-        console.log("Service ID:", SERVICE_ID);
-        console.log("Template ID:", TEMPLATE_ID);
-        console.log("Public Key:", PUBLIC_KEY);
-
         emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
             .then((result) => {
                 console.log('SUCCESS!', result.status, result.text);
@@ -36,7 +30,6 @@ const ContactForm = () => {
                 setFormData(EMPTY_FORM);
             })
             .catch((error) => {
-                // This will now show the EXACT error message from EmailJS
                 console.error('FAILED...', error);
                 setStatusMessage('error');
             })
