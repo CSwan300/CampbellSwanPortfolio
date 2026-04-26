@@ -23,6 +23,7 @@ const ContactForm = () => {
         setIsSending(true);
         setStatusMessage('');
 
+
         emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
             .then((result) => {
                 console.log('SUCCESS!', result.status, result.text);
