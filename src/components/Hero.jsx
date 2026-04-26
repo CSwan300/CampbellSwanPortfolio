@@ -1,5 +1,5 @@
 import { personalInfo } from '../data/personalInfo';
-import ScotlandBackground from './ScotlandBackground';
+import ScotlandBackground from './Background.jsx';
 
 const Hero = ({ scrollToSection }) => {
     return (

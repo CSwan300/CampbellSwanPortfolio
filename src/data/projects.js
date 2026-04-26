@@ -8,8 +8,6 @@ export const projects = [
         demo: "https://campbellswanwebdev2courseworklivedemo.onrender.com/",
         image: "./images/Yoga.png",
     },
-
-
     {
         id: 3,
         title: "Language Explorer",
@@ -22,7 +20,7 @@ export const projects = [
     {
         id: 4,
         title: "Portfolio Website",
-        description: "portfolio showcasing projects and skills with a responsive design hint your on it haha",
+        description: "portfolio showcasing projects and skills with a responsive design adapted from a template",
         technologies: ["React", "Tailwind CSS", "JavaScript","Vite"],
         github: "https://github.com/CSwan300/CampbellSwanPortfolio",
         demo: "https://campbellswan.vercel.app/",
@@ -34,7 +32,7 @@ export const projects = [
         description: "a comprehensive web server log analysis tool that automates download, performs detailed technical analysis including bot detection and suspicious activity identification, and presents results via rich visualizations and reports." ,
         technologies: ["Python", "Docker", "CI/CD"],
         github: "https://github.com/CSwan300/PythonDataProjectTask",
-        // demo: "#",
+        // no demo as it isnt deployed
         image: "./images/log_analysis_report.png",
     },
 ];

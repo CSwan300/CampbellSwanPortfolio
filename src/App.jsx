@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
 import Footer from './components/Footer';
+import ContactForm from './components/Email';
 
 function App() {
     const scrollToSection = (sectionId) => {
@@ -21,6 +22,7 @@ function App() {
             <About />
             <Projects />
             <Contact />
+            <ContactForm />
             <Resume />
             <Footer scrollToSection={scrollToSection} />
         </div>
