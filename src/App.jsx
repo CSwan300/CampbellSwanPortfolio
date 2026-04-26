@@ -7,6 +7,7 @@ import Resume from './components/Resume';
 import Footer from './components/Footer';
 import ContactForm from './components/Email';
 
+
 function App() {
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
