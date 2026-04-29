@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-console.log("Hi")
 
 const EMPTY_FORM = { name: '', email: '', message: '' };
 
@@ -23,15 +22,12 @@ const ContactForm = () => {
         setIsSending(true);
         setStatusMessage('');
 
-
         emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
             .then((result) => {
-                console.log('SUCCESS!', result.status, result.text);
                 setStatusMessage('success');
                 setFormData(EMPTY_FORM);
             })
             .catch((error) => {
-                console.error('FAILED...', error);
                 setStatusMessage('error');
             })
             .finally(() => {
@@ -42,18 +38,15 @@ const ContactForm = () => {
     const isSuccess = statusMessage === 'success';
 
     return (
-        <section className="portfolio-section contact">
-            <div className="portfolio-container">
+        <section>
+            <div>
+                <h2>Send Me An Email</h2>
 
-                <h2 className="portfolio-section-title">Send Me An Email</h2>
-
-                <div className="cf-wrapper">
-                    <div className="contact__footer-box">
-
+                <div>
+                    <div>
                         <form onSubmit={sendEmail} noValidate>
-
-                            <div className="cf-field">
-                                <label htmlFor="cf-name" className="cf-label">Name</label>
+                            <div>
+                                <label htmlFor="cf-name">Name</label>
                                 <input
                                     id="cf-name"
                                     type="text"
@@ -62,12 +55,11 @@ const ContactForm = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="Your name"
-                                    className="cf-input"
                                 />
                             </div>
 
-                            <div className="cf-field">
-                                <label htmlFor="cf-email" className="cf-label">Email</label>
+                            <div>
+                                <label htmlFor="cf-email">Email</label>
                                 <input
                                     id="cf-email"
                                     type="email"
@@ -76,12 +68,11 @@ const ContactForm = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="you@example.com"
-                                    className="cf-input"
                                 />
                             </div>
 
-                            <div className="cf-field">
-                                <label htmlFor="cf-message" className="cf-label">Message</label>
+                            <div>
+                                <label htmlFor="cf-message">Message</label>
                                 <textarea
                                     id="cf-message"
                                     name="message"
@@ -90,18 +81,16 @@ const ContactForm = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="What would you like to say?"
-                                    className="cf-input cf-textarea"
                                 />
                             </div>
 
                             <button
                                 type="submit"
                                 disabled={isSending}
-                                className={`cf-btn${isSending ? ' cf-btn--sending' : ''}`}
                             >
                                 {isSending ? (
                                     <>
-                                        <span className="cf-spinner" aria-hidden="true" />
+                                        <span aria-hidden="true" />
                                         Sending…
                                     </>
                                 ) : 'Send Message'}
@@ -109,16 +98,12 @@ const ContactForm = () => {
                         </form>
 
                         {statusMessage && (
-                            <p
-                                className={`cf-status ${isSuccess ? 'cf-status--success' : 'cf-status--error'}`}
-                                role="status"
-                            >
+                            <p role="status">
                                 {isSuccess
                                     ? '✓ Message sent successfully!'
                                     : '✕ Failed to send. Please try again.'}
                             </p>
                         )}
-
                     </div>
                 </div>
             </div>

@@ -10,25 +10,24 @@ const Footer = ({ scrollToSection }) => {
     ];
 
     return (
-        <footer className="footer">
-            <div className="footer__inner">
-                <div className="footer__grid">
+        <footer>
+            <div>
+                <div>
                     {/* Brand */}
                     <div>
-                        <span className="footer__brand-name">Campbell Swan</span>
-                        <p className="footer__brand-tagline">
+                        <span>Campbell Swan</span>
+                        <p>
                             Building the future through code, suffering and occasionally innovation.
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="footer__col-title footer__col-title--blue">Quick Links</h4>
-                        <ul className="footer__link-list">
+                        <h4>Quick Links</h4>
+                        <ul>
                             {quickLinks.map((link) => (
                                 <li key={link.id}>
                                     <button
-                                        className="footer__link-btn"
                                         onClick={() => scrollToSection(link.id)}
                                     >
                                         {link.label}
@@ -40,14 +39,13 @@ const Footer = ({ scrollToSection }) => {
 
                     {/* Connect */}
                     <div>
-                        <h4 className="footer__col-title footer__col-title--purple">Connect</h4>
-                        <ul className="footer__link-list">
+                        <h4>Connect</h4>
+                        <ul>
                             <li>
                                 <a
                                     href={personalInfo.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="footer__link footer__link--blue"
                                 >
                                     GitHub
                                 </a>
@@ -57,7 +55,6 @@ const Footer = ({ scrollToSection }) => {
                                     href={personalInfo.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="footer__link footer__link--green"
                                 >
                                     LinkedIn
                                 </a>
@@ -65,7 +62,6 @@ const Footer = ({ scrollToSection }) => {
                             <li>
                                 <a
                                     href={`mailto:${personalInfo.email}`}
-                                    className="footer__link footer__link--purple"
                                 >
                                     Email
                                 </a>
@@ -74,10 +70,10 @@ const Footer = ({ scrollToSection }) => {
                     </div>
                 </div>
 
-                <hr className="footer__divider" />
+                <hr />
 
-                <div className="footer__bottom">
-                    <p className="footer__copyright">
+                <div>
+                    <p>
                         © {currentYear} {personalInfo.name}. All rights reserved.
                     </p>
                 </div>

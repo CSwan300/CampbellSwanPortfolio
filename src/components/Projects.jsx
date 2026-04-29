@@ -2,20 +2,19 @@ import { projects } from '../data/projects';
 
 const Projects = () => {
     return (
-        <section id="projects" className="portfolio-section projects">
-            <div className="portfolio-container">
-                <h2 className="portfolio-section-title">Featured Projects</h2>
+        <section id="projects">
+            <div>
+                <h2>Featured Projects</h2>
 
-                <div className="projects__grid">
+                <div>
                     {projects.map((project) => (
-                        <article key={project.id} className="project-card">
-                            <div className="project-card__image">
+                        <article key={project.id}>
+                            <div>
                                 {project.image ? (
                                     <img src={project.image} alt={project.title} />
                                 ) : (
-                                    <div className="project-card__placeholder">
+                                    <div>
                                         <svg
-                                            className="project-card__placeholder-icon"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -31,22 +30,21 @@ const Projects = () => {
                                 )}
                             </div>
 
-                            <div className="project-card__body">
-                                <h3 className="project-card__title">{project.title}</h3>
-                                <p className="project-card__description">{project.description}</p>
+                            <div>
+                                <h3>{project.title}</h3>
+                                <p>{project.description}</p>
 
-                                <ul className="project-card__tags">
+                                <ul>
                                     {project.technologies.map((tech) => (
-                                        <li key={tech} className="project-card__tag">{tech}</li>
+                                        <li key={tech}>{tech}</li>
                                     ))}
                                 </ul>
 
-                                <div className="project-card__links">
+                                <div>
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="project-card__link project-card__link--github"
                                     >
                                         GitHub
                                     </a>
@@ -55,15 +53,11 @@ const Projects = () => {
                                             href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="project-card__link project-card__link--demo"
                                         >
                                             Demo
                                         </a>
                                     ) : (
-                                        <span
-                                            className="project-card__link project-card__link--demo-disabled"
-                                            aria-disabled="true"
-                                        >
+                                        <span aria-disabled="true">
                                             Demo
                                         </span>
                                     )}
@@ -73,13 +67,12 @@ const Projects = () => {
                     ))}
                 </div>
 
-                <div className="projects__cta">
-                    <p className="projects__cta-text">Interested in collaborating or seeing more?</p>
+                <div>
+                    <p>Interested in collaborating or seeing more?</p>
                     <a
                         href="https://github.com/CSwan300"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="projects__cta-link"
                     >
                         Visit My GitHub
                     </a>

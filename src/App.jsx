@@ -17,7 +17,7 @@ function App() {
     };
 
     return (
-        <div className="bg-slate-900 text-white overflow-hidden">
+        <div>
             <Header scrollToSection={scrollToSection} />
             <Hero scrollToSection={scrollToSection} />
             <About />
