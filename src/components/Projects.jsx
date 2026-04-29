@@ -2,20 +2,22 @@ import { projects } from '../data/projects';
 
 const Projects = () => {
     return (
-        <section id="projects" className="portfolio-section projects">
-            <div className="portfolio-container">
-                <h2 className="portfolio-section-title">Featured Projects</h2>
+        <section id="projects" className="projects-section">
+            <div className="projects-container">
 
-                <div className="projects__grid">
+                <h2>Featured Projects</h2>
+
+                <div className="projects-grid">
                     {projects.map((project) => (
                         <article key={project.id} className="project-card">
-                            <div className="project-card__image">
+
+                            {/* Image / placeholder */}
+                            <div className="project-image-wrap">
                                 {project.image ? (
                                     <img src={project.image} alt={project.title} />
                                 ) : (
-                                    <div className="project-card__placeholder">
+                                    <div className="project-image-placeholder">
                                         <svg
-                                            className="project-card__placeholder-icon"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -24,29 +26,29 @@ const Projects = () => {
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
                                                 strokeWidth={1.5}
-                                                d="M12 6v6m0 0v6m0-6h6m0 0h6m0 0h-6m0 0H6"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                                             />
                                         </svg>
                                     </div>
                                 )}
                             </div>
 
-                            <div className="project-card__body">
-                                <h3 className="project-card__title">{project.title}</h3>
-                                <p className="project-card__description">{project.description}</p>
+                            {/* Body */}
+                            <div className="project-body">
+                                <h3>{project.title}</h3>
+                                <p>{project.description}</p>
 
-                                <ul className="project-card__tags">
+                                <ul>
                                     {project.technologies.map((tech) => (
-                                        <li key={tech} className="project-card__tag">{tech}</li>
+                                        <li key={tech}>{tech}</li>
                                     ))}
                                 </ul>
 
-                                <div className="project-card__links">
+                                <div className="project-links">
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="project-card__link project-card__link--github"
                                     >
                                         GitHub
                                     </a>
@@ -55,35 +57,31 @@ const Projects = () => {
                                             href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="project-card__link project-card__link--demo"
                                         >
-                                            Demo
+                                            Live Demo
                                         </a>
                                     ) : (
-                                        <span
-                                            className="project-card__link project-card__link--demo-disabled"
-                                            aria-disabled="true"
-                                        >
-                                            Demo
-                                        </span>
+                                        <span aria-disabled="true">No Demo</span>
                                     )}
                                 </div>
                             </div>
+
                         </article>
                     ))}
                 </div>
 
-                {/*<div className="projects__cta">*/}
-                {/*    <p className="projects__cta-text">Interested in collaborating or seeing more?</p>*/}
-                {/*    <a*/}
-                {/*        href="https://github.com/CSwan300"*/}
-                {/*        target="_blank"*/}
-                {/*        rel="noopener noreferrer"*/}
-                {/*        className="projects__cta-link"*/}
-                {/*    >*/}
-                {/*        Visit My GitHub*/}
-                {/*    </a>*/}
-                {/*</div>*/}
+                {/* Footer CTA */}
+                <div className="projects-cta">
+                    <p>Interested in collaborating or seeing more?</p>
+                    <a
+                        href="https://github.com/CSwan300"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Visit My GitHub
+                    </a>
+                </div>
+
             </div>
         </section>
     );

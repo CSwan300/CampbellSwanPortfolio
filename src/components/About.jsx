@@ -7,53 +7,53 @@ const SKILLS = [
 ];
 
 const STATS = [
-    { label: 'Projects Completed',       value: '10+', modifier: 'blue'   },
-    { label: 'Languages I Am Familiar With', value: '8+', modifier: 'purple' },
-    { label: 'GitHub Repositories',      value: '15+', modifier: 'green'  },
-    { label: 'My Golf Handicap',          value: '33+', modifier: 'pink'   },
-    { label: 'Number of Scotch Pies consumed',          value: 'Unknown', modifier: 'blue'   },
+    { label: 'Projects Completed',          value: '10+' },
+    { label: 'Languages I Am Familiar With', value: '8+'  },
+    { label: 'GitHub Repositories',          value: '15+' },
+    { label: 'My Golf Handicap',             value: '33+' },
 ];
 
 const About = () => {
     return (
-        <section id="about" className="portfolio-section about">
-            <div className="portfolio-container">
-                <h2 className="portfolio-section-title">About Me</h2>
+        <section id="about" className="about-section">
+            <div className="about-container">
 
-                <div className="about__grid">
-                    {/* Left — text */}
-                    <div className="about__text-card">
-                        <p className="about__bio">{personalInfo.bio}</p>
+                <h2>About Me</h2>
 
-                        <div>
-                            <h3 className="about__skills-heading">Skills &amp; Interests</h3>
-                            <ul className="about__skills-list">
+                <div className="about-grid">
+
+                    {/* Left — bio + skills */}
+                    <div className="about-left">
+                        <p>{personalInfo.bio}</p>
+
+                        <div className="about-skills">
+                            <h3>Skills &amp; Interests</h3>
+                            <ul>
                                 {SKILLS.map((skill) => (
-                                    <li key={skill} className="about__skill-item">
-                                        ✓ {skill}
-                                    </li>
+                                    <li key={skill}>✓ {skill}</li>
                                 ))}
                             </ul>
                         </div>
                     </div>
 
-                    {/* Right — stats */}
-                    <div className="about__stats-card">
-                        <div className="about__stats-glow" />
-                        <div className="about__stats-inner">
-                            <h3 className="about__stats-heading">By The Numbers</h3>
-                            <dl className="about__stats-list">
-                                {STATS.map(({ label, value, modifier }) => (
-                                    <div key={label} className="about__stat-row">
-                                        <dt className="about__stat-label">{label}</dt>
-                                        <dd className={`about__stat-value about__stat-value--${modifier}`}>
-                                            {value}
-                                        </dd>
+                    {/* Right — image placeholder + stats */}
+                    <div className="about-right">
+                        {/*the terminal screen and flag thing*/}
+                        <div className="about-image-placeholder" />
+
+                        <div className="about-stats">
+                            <h3>By The Numbers</h3>
+                            <dl>
+                                {STATS.map(({ label, value }) => (
+                                    <div key={label}>
+                                        <dd>{value}</dd>
+                                        <dt>{label}</dt>
                                     </div>
                                 ))}
                             </dl>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

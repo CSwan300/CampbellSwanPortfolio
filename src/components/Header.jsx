@@ -16,21 +16,19 @@ const Header = ({ scrollToSection }) => {
     }, [isDarkMode]);
 
     return (
-        <header className="header">
-            <nav className="header__nav">
+        <header>
+            <nav>
                 <button
-                    className="header__logo"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     aria-label="Scroll to top"
                 >
                     SWAN
                 </button>
 
-                <ul className="header__nav-list">
+                <ul>
                     {navItems.map((item) => (
                         <li key={item.id}>
                             <button
-                                className="header__nav-btn"
                                 onClick={() => scrollToSection(item.id)}
                             >
                                 {item.label}
@@ -39,9 +37,8 @@ const Header = ({ scrollToSection }) => {
                     ))}
                 </ul>
 
-                <div className="header__controls">
+                <div>
                     <button
-                        className="header__theme-toggle"
                         onClick={() => setIsDarkMode(!isDarkMode)}
                         aria-label="Toggle theme"
                     >
@@ -49,7 +46,6 @@ const Header = ({ scrollToSection }) => {
                     </button>
 
                     <button
-                        className="header__mobile-toggle"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle mobile menu"
                     >
@@ -59,12 +55,11 @@ const Header = ({ scrollToSection }) => {
             </nav>
 
             {isMobileMenuOpen && (
-                <div className="header__mobile-menu">
-                    <ul className="header__mobile-nav-list">
+                <div>
+                    <ul>
                         {navItems.map((item) => (
                             <li key={item.id}>
                                 <button
-                                    className="header__nav-btn"
                                     onClick={() => {
                                         scrollToSection(item.id);
                                         setIsMobileMenuOpen(false);

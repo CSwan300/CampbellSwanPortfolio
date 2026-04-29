@@ -10,27 +10,26 @@ const Footer = ({ scrollToSection }) => {
     ];
 
     return (
-        <footer className="footer">
-            <div className="footer__inner">
-                <div className="footer__grid">
+        <footer>
+            <div className="footer-container">
+
+                <div className="footer-top">
+
                     {/* Brand */}
-                    <div>
-                        <span className="footer__brand-name">Campbell Swan</span>
-                        <p className="footer__brand-tagline">
+                    <div className="footer-brand">
+                        <span>Campbell Swan</span>
+                        <p>
                             Building the future through code, suffering and occasionally innovation.
                         </p>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
-                        <h4 className="footer__col-title footer__col-title--blue">Quick Links</h4>
-                        <ul className="footer__link-list">
+                    <div className="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul>
                             {quickLinks.map((link) => (
                                 <li key={link.id}>
-                                    <button
-                                        className="footer__link-btn"
-                                        onClick={() => scrollToSection(link.id)}
-                                    >
+                                    <button onClick={() => scrollToSection(link.id)}>
                                         {link.label}
                                     </button>
                                 </li>
@@ -39,48 +38,37 @@ const Footer = ({ scrollToSection }) => {
                     </div>
 
                     {/* Connect */}
-                    <div>
-                        <h4 className="footer__col-title footer__col-title--purple">Connect</h4>
-                        <ul className="footer__link-list">
+                    <div className="footer-col">
+                        <h4>Connect</h4>
+                        <ul>
                             <li>
-                                <a
-                                    href={personalInfo.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="footer__link footer__link--blue"
-                                >
+                                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
                                     GitHub
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href={personalInfo.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="footer__link footer__link--green"
-                                >
+                                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
                                     LinkedIn
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href={`mailto:${personalInfo.email}`}
-                                    className="footer__link footer__link--purple"
-                                >
+                                <a href={`mailto:${personalInfo.email}`}>
                                     Email
                                 </a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
 
-                <hr className="footer__divider" />
+                <hr />
 
-                <div className="footer__bottom">
-                    <p className="footer__copyright">
+                <div className="footer-bottom">
+                    <p>
                         © {currentYear} {personalInfo.name}. All rights reserved.
                     </p>
                 </div>
+
             </div>
         </footer>
     );
