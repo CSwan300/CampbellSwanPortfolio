@@ -5,7 +5,6 @@ const Contact = () => {
         <section id="contact" className="contact-links-section">
             <div className="contact-links-container">
                 <h2>Get In Touch</h2>
-
                 <div className="contact-links-grid">
                     <a
                         className="contact-card"
