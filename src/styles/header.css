@@ -1,0 +1,512 @@
+/* ============================================================
+   HEADER CSS — header.css
+   Imports global.css — all theme tokens come from there.
+
+   Dark  → Retro terminal: phosphor glow, monospace, CRT edge
+   Light → Scotland: heather, slate, dignified serif editorial
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   LAYOUT — <header>
+   ---------------------------------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--header-border);
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    transition:
+            background var(--transition-slow),
+            border-color var(--transition-slow),
+            box-shadow var(--transition-slow);
+}
+
+/* Dark: glowing bottom border + faint top scanline edge */
+[data-theme="dark"] header {
+    box-shadow:
+            0 1px 0 var(--color-primary-faint),
+            0 0 20px rgba(0, 255, 65, 0.08),
+            0 4px 32px rgba(0, 0, 0, 0.8);
+    border-bottom-color: var(--color-border-glow);
+}
+
+/* Dark: pulsing phosphor underline */
+[data-theme="dark"] header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--color-primary) 20%,
+            var(--color-accent) 50%,
+            var(--color-primary) 80%,
+            transparent 100%
+    );
+    animation: header-scan 4s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes header-scan {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1;   }
+}
+
+/* Light: warm stone shadow with heather hint */
+[data-theme="light"] header {
+    box-shadow:
+            0 1px 0 rgba(184,169,154,0.6),
+            0 4px 20px rgba(0, 0, 0, 0.08),
+            0 1px 4px rgba(74,32,64,0.06);
+}
+
+/* Light: thin tartan-accent top bar */
+[data-theme="light"] header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+            90deg,
+            var(--color-primary)    0%,
+            var(--color-primary)    33%,
+            var(--color-accent)     33%,
+            var(--color-accent)     40%,
+            var(--color-primary)    40%,
+            var(--color-primary)    60%,
+            var(--color-accent-alt) 60%,
+            var(--color-accent-alt) 67%,
+            var(--color-primary)    67%,
+            var(--color-primary)    100%
+    );
+}
+
+/* ----------------------------------------------------------
+   <nav> — inner flex row
+   ---------------------------------------------------------- */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 var(--space-xl);
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: var(--space-lg);
+}
+
+/* ----------------------------------------------------------
+   LOGO / BRAND BUTTON — "SWAN"
+   ---------------------------------------------------------- */
+header nav > button:first-child {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs) 0;
+    flex-shrink: 0;
+    transition:
+            color var(--transition-base),
+            text-shadow var(--transition-base),
+            transform var(--transition-fast);
+    position: relative;
+}
+
+/* Dark: terminal cursor blink after brand name */
+[data-theme="dark"] header nav > button:first-child::after {
+    content: '_';
+    display: inline-block;
+    margin-left: 2px;
+    animation: cursor-blink 1.1s step-end infinite;
+    color: var(--color-accent);
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+[data-theme="dark"] header nav > button:first-child {
+    font-size: 2rem;
+    text-shadow: var(--shadow-glow-strong);
+    letter-spacing: 0.2em;
+}
+
+[data-theme="dark"] header nav > button:first-child:hover {
+    color: var(--color-accent);
+    text-shadow:
+            0 0 6px var(--color-accent),
+            0 0 20px var(--color-accent),
+            0 0 40px rgba(57,255,20,0.4);
+    transform: scale(1.04);
+}
+
+[data-theme="light"] header nav > button:first-child {
+    font-size: 1.9rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    text-shadow: 1px 1px 0 rgba(74,32,64,0.15);
+}
+
+[data-theme="light"] header nav > button:first-child:hover {
+    color: var(--color-accent);
+    text-shadow: 1px 2px 4px rgba(26,92,56,0.2);
+    transform: scale(1.03);
+}
+
+/* ----------------------------------------------------------
+   DESKTOP NAV LIST — <ul>
+   ---------------------------------------------------------- */
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+/* Nav buttons */
+header nav ul li button {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    transition:
+            color var(--transition-base),
+            background var(--transition-base),
+            text-shadow var(--transition-base),
+            box-shadow var(--transition-base);
+    position: relative;
+    white-space: nowrap;
+}
+
+/* Dark: monospaced nav with > prefix on hover */
+[data-theme="dark"] header nav ul li button {
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] header nav ul li button::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    color: var(--color-accent);
+    transition: width var(--transition-base), opacity var(--transition-base);
+    opacity: 0;
+    font-family: var(--font-mono);
+}
+
+[data-theme="dark"] header nav ul li button:hover::before {
+    content: '> ';
+    width: 1.2em;
+    opacity: 1;
+}
+
+[data-theme="dark"] header nav ul li button:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-faint);
+    text-shadow: 0 0 8px rgba(0,255,65,0.5);
+    box-shadow: inset 0 0 0 1px var(--color-border-glow);
+}
+
+/* Dark: underline indicator */
+[data-theme="dark"] header nav ul li button::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: var(--space-md);
+    right: var(--space-md);
+    height: 1px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-glow);
+}
+
+[data-theme="dark"] header nav ul li button:hover::after {
+    transform: scaleX(1);
+}
+
+/* Light: dignified serif nav */
+[data-theme="light"] header nav ul li button {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+[data-theme="light"] header nav ul li button:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-faint);
+}
+
+/* Light: heather underline */
+[data-theme="light"] header nav ul li button::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: var(--space-md);
+    right: var(--space-md);
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+    border-radius: 1px;
+}
+
+[data-theme="light"] header nav ul li button:hover::after {
+    transform: scaleX(1);
+}
+
+/* ----------------------------------------------------------
+   RIGHT CONTROLS — theme toggle + hamburger
+   ---------------------------------------------------------- */
+header nav > div {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-shrink: 0;
+}
+
+/* Shared icon button base */
+header nav > div button {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition:
+            background var(--transition-base),
+            border-color var(--transition-base),
+            box-shadow var(--transition-base),
+            transform var(--transition-fast);
+}
+
+/* Dark: terminal-style icon buttons */
+[data-theme="dark"] header nav > div button {
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] header nav > div button:hover {
+    background: var(--color-primary-faint);
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-glow);
+    color: var(--color-primary);
+    transform: scale(1.08);
+}
+
+/* Light: warm stone icon buttons */
+[data-theme="light"] header nav > div button {
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+[data-theme="light"] header nav > div button:hover {
+    background: var(--color-primary-faint);
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-glow);
+    color: var(--color-primary);
+    transform: scale(1.06);
+}
+
+/* Hamburger — hidden on desktop */
+header nav > div button[aria-label="Toggle mobile menu"] {
+    display: none;
+}
+
+/* ----------------------------------------------------------
+   MOBILE MENU DRAWER
+   ---------------------------------------------------------- */
+header > div {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    animation: drawer-in var(--transition-base) ease both;
+}
+
+@keyframes drawer-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark mobile drawer */
+[data-theme="dark"] header > div {
+    background: rgba(10,15,10,0.97);
+    border-bottom: 1px solid var(--color-border-glow);
+    box-shadow:
+            0 8px 32px rgba(0,0,0,0.9),
+            inset 0 1px 0 var(--color-primary-faint);
+    backdrop-filter: blur(16px);
+}
+
+/* Light mobile drawer */
+[data-theme="light"] header > div {
+    background: rgba(240,237,232,0.97);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    backdrop-filter: blur(16px);
+}
+
+/* Mobile nav list */
+header > div ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Mobile nav buttons */
+header > div ul li button {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    cursor: pointer;
+    background: none;
+    border: 1px solid transparent;
+    transition:
+            background var(--transition-base),
+            border-color var(--transition-base),
+            color var(--transition-base),
+            padding-left var(--transition-base);
+}
+
+[data-theme="dark"] header > div ul li button {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+[data-theme="dark"] header > div ul li button::before {
+    content: '> ';
+    color: var(--color-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+[data-theme="dark"] header > div ul li button:hover::before {
+    opacity: 1;
+}
+
+[data-theme="dark"] header > div ul li button:hover {
+    background: var(--color-primary-faint);
+    border-color: var(--color-border-glow);
+    color: var(--color-primary);
+    text-shadow: 0 0 8px rgba(0,255,65,0.4);
+}
+
+[data-theme="light"] header > div ul li button {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    padding: var(--space-md) var(--space-sm);
+}
+
+[data-theme="light"] header > div ul li:last-child button {
+    border-bottom: none;
+}
+
+[data-theme="light"] header > div ul li button:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-faint);
+    padding-left: var(--space-lg);
+    border-radius: var(--radius-sm);
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    header nav {
+        padding: 0 var(--space-lg);
+    }
+
+    /* Hide desktop nav on mobile */
+    header nav > ul {
+        display: none;
+    }
+
+    /* Show hamburger on mobile */
+    header nav > div button[aria-label="Toggle mobile menu"] {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav {
+        padding: 0 var(--space-md);
+    }
+
+    [data-theme="dark"] header nav > button:first-child {
+        font-size: 1.6rem;
+    }
+
+    [data-theme="light"] header nav > button:first-child {
+        font-size: 1.5rem;
+    }
+}
+
+/* ----------------------------------------------------------
+   BODY PADDING — push content below fixed header
+   ---------------------------------------------------------- */
+body {
+    padding-top: var(--header-height);
+}
