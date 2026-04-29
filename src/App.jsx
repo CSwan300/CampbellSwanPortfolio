@@ -20,12 +20,12 @@ function App() {
         <div>
             <Header scrollToSection={scrollToSection} />
             <Hero scrollToSection={scrollToSection} />
-            <About />
-            <Projects />
-            <Contact />
-            <ContactForm />
-            <Resume />
-            <Footer scrollToSection={scrollToSection} />
+            {/*<About />*/}
+            {/*<Projects />*/}
+            {/*<Contact />*/}
+            {/*<ContactForm />*/}
+            {/*<Resume />*/}
+            {/*<Footer scrollToSection={scrollToSection} />*/}
         </div>
     );
 }
