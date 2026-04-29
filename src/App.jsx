@@ -22,8 +22,8 @@ function App() {
             <Hero scrollToSection={scrollToSection} />
             <About />
             <Projects />
-            <ContactForm />
             <Contact />
+            <ContactForm />
             <Resume />
             <Footer scrollToSection={scrollToSection} />
         </div>
