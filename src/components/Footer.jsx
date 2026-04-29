@@ -2,7 +2,6 @@ import { personalInfo } from '../data/personalInfo';
 
 const Footer = ({ scrollToSection }) => {
     const currentYear = new Date().getFullYear();
-
     const quickLinks = [
         { label: 'About',    id: 'about'    },
         { label: 'Projects', id: 'projects' },

@@ -1,4 +1,4 @@
-const ScottishBackground = () => {
+const Background = () => {
     return (
         <div className="scottish-bg-absolute">
             <div className="sky-gradient" />
@@ -53,4 +53,4 @@ const ScottishBackground = () => {
     );
 };
 
-export default ScottishBackground;
+export default Background;

@@ -207,7 +207,7 @@
 html {
     scroll-behavior: smooth;
     font-size: var(--text-base);
-    font-family: var(--font-sans);
+    font-family: var(--font-sans), serif;
     line-height: var(--lh-normal);
     color: var(--color-text);
     background-color: var(--color-background);
@@ -353,13 +353,12 @@ a:hover { color: var(--color-primary-hover); }
 .header__logo {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(to right, var(--p-blue-400), var(--p-purple-500));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     cursor: pointer;
     border: none;
-    background-color: transparent;
+    background: transparent linear-gradient(to right, var(--p-blue-400), var(--p-purple-500));
 }
 
 .header__nav-list {
@@ -869,8 +868,8 @@ a:hover { color: var(--color-primary-hover); }
     cursor: not-allowed;
 }
 
-.projects__cta      { text-align: center; margin-top: 3rem; }
-.projects__cta-text { color: var(--p-gray-400); margin-bottom: 1rem; }
+.projects__cta      { text-align: center; margin-top: 3rem;font-size: 2rem; }
+projects__cta-text { color: var(--p-gray-400); margin-bottom: 1rem;font-size: 2rem; }
 .projects__cta-link {
     display: inline-block;
     padding: 0.75rem 2rem;
@@ -880,6 +879,7 @@ a:hover { color: var(--color-primary-hover); }
     font-weight: 600;
     text-decoration: none;
     transition: box-shadow 300ms ease;
+    font-size: 1rem;
 }
 .projects__cta-link:hover { box-shadow: 0 20px 25px -5px rgba(168,85,247,0.5); color: #fff; }
 
