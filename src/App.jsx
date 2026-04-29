@@ -22,7 +22,6 @@ function App() {
             <About />
             <Projects />
             <Contact />
-            <ContactForm />
             <Resume />
             <Footer scrollToSection={scrollToSection} />
         </div>

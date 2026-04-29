@@ -1,10 +1,10 @@
 import { personalInfo } from '../data/personalInfo';
-import ScotlandBackground from './Background.jsx';
+import Background from './Background.jsx';
 
 const Hero = ({ scrollToSection }) => {
     return (
         <section className="hero">
-            <ScotlandBackground />
+            <Background />
             <div className="hero__overlay" />
 
             <div className="hero__content">
