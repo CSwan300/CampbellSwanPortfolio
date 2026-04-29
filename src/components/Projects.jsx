@@ -73,17 +73,17 @@ const Projects = () => {
                     ))}
                 </div>
 
-                <div className="projects__cta">
-                    <p className="projects__cta-text">Interested in collaborating or seeing more?</p>
-                    <a
-                        href="https://github.com/CSwan300"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="projects__cta-link"
-                    >
-                        Visit My GitHub
-                    </a>
-                </div>
+                {/*<div className="projects__cta">*/}
+                {/*    <p className="projects__cta-text">Interested in collaborating or seeing more?</p>*/}
+                {/*    <a*/}
+                {/*        href="https://github.com/CSwan300"*/}
+                {/*        target="_blank"*/}
+                {/*        rel="noopener noreferrer"*/}
+                {/*        className="projects__cta-link"*/}
+                {/*    >*/}
+                {/*        Visit My GitHub*/}
+                {/*    </a>*/}
+                {/*</div>*/}
             </div>
         </section>
     );

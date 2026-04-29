@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-console.log("Hi")
 
 const EMPTY_FORM = { name: '', email: '', message: '' };
 
@@ -45,7 +44,7 @@ const ContactForm = () => {
         <section className="portfolio-section contact">
             <div className="portfolio-container">
 
-                <h2 className="portfolio-section-title">Send Me An Email</h2>
+                <h2 className="portfolio-section-title">Or You Can Send Me An Email</h2>
 
                 <div className="cf-wrapper">
                     <div className="contact__footer-box">
@@ -122,6 +121,7 @@ const ContactForm = () => {
                     </div>
                 </div>
             </div>
+
         </section>
     );
 };

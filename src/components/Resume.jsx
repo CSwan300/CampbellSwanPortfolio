@@ -13,7 +13,7 @@ const Resume = () => {
     return (
         <section id="resume" className="portfolio-section resume">
             <div className="portfolio-container">
-                <h2 className="portfolio-section-title">Resume</h2>
+                <h2 className="portfolio-section-title">Or Even Download My Cv</h2>
 
                 <div className="resume__layout">
                     {/* Left — info */}
@@ -63,7 +63,7 @@ const Resume = () => {
                                 d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 0l-6 6m6-6l6 6"
                             />
                         </svg>
-                        <h3 className="resume__download-title">Download Resume</h3>
+                        <h3 className="resume__download-title">Download Resume (CV)</h3>
                         <p className="resume__download-subtitle">
                             Get a detailed overview of my experience, skills, and accomplishments.
                         </p>

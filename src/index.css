@@ -933,7 +933,6 @@ projects__cta-text { color: var(--p-gray-400); margin-bottom: 1rem;font-size: 2r
 .contact__card:hover .contact__card-value--linkedin { color: var(--p-green-400); }
 
 .contact__footer-box {
-    background: linear-gradient(to right, rgba(37,99,235,0.2), rgba(147,51,234,0.2));
     border: 1px solid rgba(168, 85, 247, 0.5);
     border-radius: var(--radius-base);
     padding: 2rem;
