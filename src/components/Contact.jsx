@@ -52,7 +52,7 @@ const Contact = () => {
                             href={`mailto:${personalInfo.email}`}
                             className="contact__footer-btn--primary"
                         >
-                           Send An Email Or Use The Form Above
+                           Send An Email Or Use The Form
                         </a>
                         <a
                             href={personalInfo.linkedin}

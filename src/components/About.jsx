@@ -11,6 +11,7 @@ const STATS = [
     { label: 'Languages I Am Familiar With', value: '8+', modifier: 'purple' },
     { label: 'GitHub Repositories',      value: '15+', modifier: 'green'  },
     { label: 'My Golf Handicap',          value: '33+', modifier: 'pink'   },
+    { label: 'Number of Scotch Pies consumed',          value: 'Unknown', modifier: 'blue'   },
 ];
 
 const About = () => {
