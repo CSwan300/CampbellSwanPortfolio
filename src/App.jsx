@@ -7,6 +7,7 @@ import Resume from './components/Resume';
 import Footer from './components/Footer';
 import ContactForm from './components/Email';
 
+
 function App() {
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
@@ -21,6 +22,7 @@ function App() {
             <Hero scrollToSection={scrollToSection} />
             <About />
             <Projects />
+            <ContactForm />
             <Contact />
             <Resume />
             <Footer scrollToSection={scrollToSection} />
