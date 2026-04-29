@@ -6,7 +6,6 @@ const Hero = ({ scrollToSection }) => {
         <section>
             <Background />
             <div />
-
             <div>
                 <div>
                     <h1>
