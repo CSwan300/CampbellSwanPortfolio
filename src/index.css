@@ -353,12 +353,11 @@ a:hover { color: var(--color-primary-hover); }
 .header__logo {
     font-size: 1.5rem;
     font-weight: 700;
+    background: linear-gradient(to right, var(--p-blue-400), var(--p-purple-500));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     cursor: pointer;
-    border: none;
-    background: transparent linear-gradient(to right, var(--p-blue-400), var(--p-purple-500));
 }
 
 .header__nav-list {
