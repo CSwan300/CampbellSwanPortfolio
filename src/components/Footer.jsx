@@ -11,10 +11,12 @@ const Footer = ({ scrollToSection }) => {
 
     return (
         <footer>
-            <div>
-                <div>
+            <div className="footer-container">
+
+                <div className="footer-top">
+
                     {/* Brand */}
-                    <div>
+                    <div className="footer-brand">
                         <span>Campbell Swan</span>
                         <p>
                             Building the future through code, suffering and occasionally innovation.
@@ -22,14 +24,12 @@ const Footer = ({ scrollToSection }) => {
                     </div>
 
                     {/* Quick Links */}
-                    <div>
+                    <div className="footer-col">
                         <h4>Quick Links</h4>
                         <ul>
                             {quickLinks.map((link) => (
                                 <li key={link.id}>
-                                    <button
-                                        onClick={() => scrollToSection(link.id)}
-                                    >
+                                    <button onClick={() => scrollToSection(link.id)}>
                                         {link.label}
                                     </button>
                                 </li>
@@ -38,45 +38,37 @@ const Footer = ({ scrollToSection }) => {
                     </div>
 
                     {/* Connect */}
-                    <div>
+                    <div className="footer-col">
                         <h4>Connect</h4>
                         <ul>
                             <li>
-                                <a
-                                    href={personalInfo.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
                                     GitHub
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href={personalInfo.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
                                     LinkedIn
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href={`mailto:${personalInfo.email}`}
-                                >
+                                <a href={`mailto:${personalInfo.email}`}>
                                     Email
                                 </a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
 
                 <hr />
 
-                <div>
+                <div className="footer-bottom">
                     <p>
                         © {currentYear} {personalInfo.name}. All rights reserved.
                     </p>
                 </div>
+
             </div>
         </footer>
     );

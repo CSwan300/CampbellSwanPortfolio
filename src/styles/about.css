@@ -1,0 +1,526 @@
+/* ============================================================
+   ABOUT SECTION — about.css
+   Dark  → Retro terminal: phosphor panels, data readout feel
+   Light → Scotland: stone, heather, editorial warmth
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   SECTION WRAPPER
+   ---------------------------------------------------------- */
+.about-section {
+    position: relative;
+    padding: var(--space-2xl) var(--space-xl);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .about-section {
+    background: var(--color-bg);
+}
+
+[data-theme="dark"] .about-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+            linear-gradient(rgba(0,255,65,0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,255,65,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+
+[data-theme="light"] .about-section {
+    background: var(--color-bg-secondary);
+}
+
+/* Light: diagonal stone texture stripe across top */
+[data-theme="light"] .about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+            90deg,
+            var(--color-primary)    0%,
+            var(--color-primary)    33%,
+            var(--color-accent)     33%,
+            var(--color-accent)     40%,
+            var(--color-primary)    40%,
+            var(--color-primary)    60%,
+            var(--color-accent-alt) 60%,
+            var(--color-accent-alt) 67%,
+            var(--color-primary)    67%,
+            var(--color-primary)    100%
+    );
+}
+
+/* ----------------------------------------------------------
+   INNER CONTAINER
+   ---------------------------------------------------------- */
+.about-container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+}
+
+/* ----------------------------------------------------------
+   SECTION HEADING
+   ---------------------------------------------------------- */
+.about-container > h2 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+[data-theme="dark"] .about-container > h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--color-primary);
+    text-shadow: var(--shadow-glow-strong);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Dark: bracket decoration */
+[data-theme="dark"] .about-container > h2::before {
+    content: '[ ';
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+[data-theme="dark"] .about-container > h2::after {
+    content: ' ]';
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+
+[data-theme="light"] .about-container > h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    letter-spacing: -0.01em;
+}
+
+/* Light: heather underline rule */
+[data-theme="light"] .about-container > h2::after {
+    content: '';
+    display: block;
+    margin-top: var(--space-sm);
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border-radius: 2px;
+}
+
+/* ----------------------------------------------------------
+   TWO-COLUMN GRID
+   ---------------------------------------------------------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+/* ----------------------------------------------------------
+   LEFT COLUMN — bio + skills
+   ---------------------------------------------------------- */
+.about-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* Bio paragraph */
+.about-left > p {
+    margin: 0;
+    line-height: 1.85;
+}
+
+[data-theme="dark"] .about-left > p {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    border-left: 2px solid var(--color-border-glow);
+    padding-left: var(--space-md);
+}
+
+[data-theme="light"] .about-left > p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+/* Skills block */
+.about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.about-skills h3 {
+    font-family: var(--font-display);
+    margin: 0;
+}
+
+[data-theme="dark"] .about-skills h3 {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-alt);
+    font-family: var(--font-mono);
+    text-shadow: var(--shadow-amber);
+}
+
+[data-theme="dark"] .about-skills h3::before {
+    content: '> ';
+    color: var(--color-text-muted);
+}
+
+[data-theme="light"] .about-skills h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-style: italic;
+}
+
+/* Skills list */
+.about-skills ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm) var(--space-md);
+    padding: 0;
+    margin: 0;
+}
+
+.about-skills ul li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.88rem;
+    transition: color var(--transition-base), transform var(--transition-fast);
+}
+
+.about-skills ul li:hover {
+    transform: translateX(4px);
+}
+
+[data-theme="dark"] .about-skills ul li {
+    font-family: var(--font-mono);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+}
+
+[data-theme="dark"] .about-skills ul li:hover {
+    color: var(--color-primary);
+    text-shadow: 0 0 8px rgba(0,255,65,0.4);
+}
+
+/* Override the ✓ to terminal style in dark */
+[data-theme="dark"] .about-skills ul li::before {
+    content: '//';
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+/* Hide original ✓ in dark by targeting the text directly —
+   we use CSS content trick; original ✓ still in DOM but we
+   recolour it to match */
+[data-theme="dark"] .about-skills ul li {
+    /* The ✓ is part of the text node, style as dim */
+    color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .about-skills ul li:hover {
+    color: var(--color-primary);
+}
+
+[data-theme="light"] .about-skills ul li {
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+[data-theme="light"] .about-skills ul li:hover {
+    color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------
+   RIGHT COLUMN — image placeholder + stats
+   ---------------------------------------------------------- */
+.about-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    position: relative;
+}
+
+/* Image / decorative placeholder */
+.about-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .about-image-placeholder {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-glow);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+/* Dark: fake terminal window chrome */
+[data-theme="dark"] .about-image-placeholder::before {
+    content: '●  ●  ●';
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--color-border-glow);
+    z-index: 2;
+}
+
+[data-theme="dark"] .about-image-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-border-glow);
+    opacity: 0.4;
+}
+
+[data-theme="light"] .about-image-placeholder {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+/* Light: mini saltire watermark inside placeholder */
+[data-theme="light"] .about-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #005EB8;
+    opacity: 0.08;
+    background-image:
+            linear-gradient(
+                    to bottom right,
+                    transparent calc(50% - 8%),
+                    white calc(50% - 8%),
+                    white calc(50% + 8%),
+                    transparent calc(50% + 8%)
+            ),
+            linear-gradient(
+                    to bottom left,
+                    transparent calc(50% - 8%),
+                    white calc(50% - 8%),
+                    white calc(50% + 8%),
+                    transparent calc(50% + 8%)
+            );
+}
+
+/* ----------------------------------------------------------
+   STATS — "By The Numbers"
+   ---------------------------------------------------------- */
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.about-stats h3 {
+    font-family: var(--font-display);
+    margin: 0;
+}
+
+[data-theme="dark"] .about-stats h3 {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-alt);
+    font-family: var(--font-mono);
+    text-shadow: var(--shadow-amber);
+}
+
+[data-theme="dark"] .about-stats h3::before {
+    content: '> ';
+    color: var(--color-text-muted);
+}
+
+[data-theme="light"] .about-stats h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-style: italic;
+}
+
+/* Stats dl */
+.about-stats dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+}
+
+.about-stats dl > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    transition:
+            box-shadow var(--transition-base),
+            border-color var(--transition-base),
+            transform var(--transition-fast);
+}
+
+.about-stats dl > div:hover {
+    transform: translateY(-3px);
+}
+
+[data-theme="dark"] .about-stats dl > div {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .about-stats dl > div:hover {
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+[data-theme="light"] .about-stats dl > div {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .about-stats dl > div:hover {
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-glow);
+}
+
+/* stat value — dd */
+.about-stats dl > div dd {
+    font-family: var(--font-display);
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+}
+
+[data-theme="dark"] .about-stats dl > div dd {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-shadow: var(--shadow-glow);
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+}
+
+[data-theme="light"] .about-stats dl > div dd {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+}
+
+/* stat label — dt */
+.about-stats dl > div dt {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+[data-theme="dark"] .about-stats dl > div dt {
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+}
+
+[data-theme="light"] .about-stats dl > div dt {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+}
+
+/* ----------------------------------------------------------
+   ENTRANCE ANIMATIONS
+   ---------------------------------------------------------- */
+.about-container {
+    animation: about-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes about-fade-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+.about-left  { animation: about-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+.about-right { animation: about-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+   ---------------------------------------------------------- */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+    }
+
+    .about-image-placeholder {
+        width: 240px;
+        aspect-ratio: 1;
+        flex-shrink: 0;
+    }
+
+    .about-stats {
+        flex: 1;
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
+    .about-right {
+        flex-direction: column;
+    }
+
+    .about-image-placeholder {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .about-skills ul {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats dl {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .about-stats dl {
+        grid-template-columns: 1fr;
+    }
+}
