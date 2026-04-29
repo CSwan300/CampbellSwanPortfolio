@@ -17,13 +17,13 @@
    ---------------------------------------------------------- */
 :root,
 [data-theme="dark"] {
-    /* Core palette */
-    --color-bg:           #0a0f0a;          /* near-black with green tint       */
-    --color-bg-secondary: #0d150d;          /* slightly lighter panel bg        */
-    --color-bg-tertiary:  #111a11;          /* cards / elevated surfaces        */
-    --color-surface:      #0f1a0f;
-    --color-border:       #1f3d1f;
-    --color-border-glow:  #2a6b2a;
+    /* Core palette — matched to reference screenshot */
+    --color-bg:           #050a05;          /* near-black, deep forest           */
+    --color-bg-secondary: #080d08;          /* slightly lighter panel bg         */
+    --color-bg-tertiary:  #0c130c;          /* cards / elevated surfaces         */
+    --color-surface:      #0a110a;
+    --color-border:       #162416;          /* grid line colour from image       */
+    --color-border-glow:  #1e4a1e;
 
     /* Phosphor greens */
     --color-primary:      #00ff41;          /* classic Matrix / VT100 green     */

@@ -1,0 +1,500 @@
+/* ============================================================
+   CONTACT FORM — contact.css
+   Dark  → Retro terminal: phosphor inputs, CRT form panel
+   Light → Scotland: stone, heather, warm editorial form
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   SECTION WRAPPER
+   ---------------------------------------------------------- */
+.contact-section {
+    position: relative;
+    padding: var(--space-2xl) var(--space-xl);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .contact-section {
+    background: var(--color-bg);
+}
+
+[data-theme="dark"] .contact-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+            linear-gradient(rgba(0,255,65,0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,255,65,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* Dark: radial fade from centre */
+[data-theme="dark"] .contact-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+            ellipse 70% 80% at 50% 50%,
+            transparent 30%,
+            rgba(10,15,10,0.75) 100%
+    );
+}
+
+[data-theme="light"] .contact-section {
+    background: var(--color-bg-secondary);
+}
+
+[data-theme="light"] .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(
+            90deg,
+            var(--color-primary)    0%,   var(--color-primary)    33%,
+            var(--color-accent)     33%,  var(--color-accent)     40%,
+            var(--color-primary)    40%,  var(--color-primary)    60%,
+            var(--color-accent-alt) 60%,  var(--color-accent-alt) 67%,
+            var(--color-primary)    67%,  var(--color-primary)    100%
+    );
+}
+
+/* ----------------------------------------------------------
+   CONTAINER
+   ---------------------------------------------------------- */
+.contact-container {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    animation: contact-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes contact-fade-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ----------------------------------------------------------
+   HEADING
+   ---------------------------------------------------------- */
+.contact-container > h2 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+[data-theme="dark"] .contact-container > h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--color-primary);
+    text-shadow: var(--shadow-glow-strong);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+[data-theme="dark"] .contact-container > h2::before { content: '[ '; color: var(--color-text-muted); font-family: var(--font-mono); }
+[data-theme="dark"] .contact-container > h2::after  { content: ' ]'; color: var(--color-text-muted); font-family: var(--font-mono); }
+
+[data-theme="light"] .contact-container > h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    letter-spacing: -0.01em;
+}
+
+[data-theme="light"] .contact-container > h2::after {
+    content: '';
+    display: block;
+    margin-top: var(--space-sm);
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border-radius: 2px;
+}
+
+/* ----------------------------------------------------------
+   CARD WRAP (the outer div around the form panel)
+   ---------------------------------------------------------- */
+.contact-card-wrap {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------
+   FORM PANEL
+   ---------------------------------------------------------- */
+.contact-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] .contact-panel {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-glow);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+/* Dark: fake terminal chrome bar */
+[data-theme="dark"] .contact-panel::before {
+    content: '●  ●  ●  ──  CONTACT.SH';
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+
+[data-theme="light"] .contact-panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+/* ----------------------------------------------------------
+   FORM — <form>
+   ---------------------------------------------------------- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* ----------------------------------------------------------
+   FIELD GROUPS — label + input/textarea
+   ---------------------------------------------------------- */
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+/* Labels */
+.contact-field label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+[data-theme="dark"] .contact-field label {
+    font-family: var(--font-mono);
+    color: var(--color-accent-alt);
+    text-shadow: var(--shadow-amber);
+}
+
+[data-theme="dark"] .contact-field label::before {
+    content: '> ';
+    color: var(--color-text-muted);
+}
+
+[data-theme="light"] .contact-field label {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-accent);
+    text-transform: none;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+}
+
+/* Inputs + Textarea shared base */
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    outline: none;
+    transition:
+            border-color var(--transition-base),
+            box-shadow var(--transition-base),
+            background var(--transition-base);
+}
+
+/* Dark inputs */
+[data-theme="dark"] .contact-field input,
+[data-theme="dark"] .contact-field textarea {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    padding: var(--space-md);
+    caret-color: var(--color-primary);
+}
+
+[data-theme="dark"] .contact-field input::placeholder,
+[data-theme="dark"] .contact-field textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .contact-field input:focus,
+[data-theme="dark"] .contact-field textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow), inset 0 0 0 1px var(--color-primary-faint);
+    background: var(--color-bg-tertiary);
+}
+
+/* Light inputs */
+[data-theme="light"] .contact-field input,
+[data-theme="light"] .contact-field textarea {
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: var(--space-md);
+}
+
+[data-theme="light"] .contact-field input::placeholder,
+[data-theme="light"] .contact-field textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+[data-theme="light"] .contact-field input:focus,
+[data-theme="light"] .contact-field textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-faint);
+}
+
+/* Textarea specific */
+.contact-field textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   SUBMIT BUTTON
+   ---------------------------------------------------------- */
+.contact-submit {
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    align-self: flex-start;
+    transition:
+            background var(--transition-base),
+            box-shadow var(--transition-base),
+            transform var(--transition-fast),
+            opacity var(--transition-base);
+}
+
+.contact-submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none !important;
+}
+
+[data-theme="dark"] .contact-submit {
+    font-family: var(--font-mono);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    box-shadow: var(--shadow-glow);
+}
+
+[data-theme="dark"] .contact-submit:not(:disabled):hover {
+    background: var(--color-accent);
+    box-shadow: var(--shadow-glow-strong);
+    transform: translateY(-2px);
+}
+
+[data-theme="light"] .contact-submit {
+    font-family: var(--font-display);
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(74,32,64,0.25);
+}
+
+[data-theme="light"] .contact-submit:not(:disabled):hover {
+    background: var(--color-primary-dim);
+    box-shadow: 0 6px 24px rgba(74,32,64,0.35);
+    transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------------
+   SPINNER — <span aria-hidden="true"> inside button
+   ---------------------------------------------------------- */
+.contact-submit span[aria-hidden] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .contact-submit span[aria-hidden] {
+    border-top-color: var(--color-text-inverse);
+    border-right-color: rgba(0,0,0,0.2);
+}
+
+[data-theme="light"] .contact-submit span[aria-hidden] {
+    border-top-color: #fff;
+    border-right-color: rgba(255,255,255,0.25);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ----------------------------------------------------------
+   STATUS MESSAGE
+   ---------------------------------------------------------- */
+.contact-status {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    animation: status-in 0.3s ease both;
+}
+
+@keyframes status-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Success */
+.contact-status--success {
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .contact-status--success {
+    font-family: var(--font-mono);
+    background: var(--color-primary-faint);
+    border: 1px solid var(--color-border-glow);
+    text-shadow: 0 0 8px rgba(0,255,65,0.4);
+}
+
+[data-theme="light"] .contact-status--success {
+    font-family: var(--font-body);
+    background: rgba(26,92,56,0.08);
+    border: 1px solid rgba(26,92,56,0.25);
+    color: var(--color-accent);
+}
+
+/* Error */
+.contact-status--error {
+    color: var(--color-warn);
+}
+
+[data-theme="dark"] .contact-status--error {
+    font-family: var(--font-mono);
+    background: rgba(255,107,0,0.08);
+    border: 1px solid rgba(255,107,0,0.3);
+}
+
+[data-theme="light"] .contact-status--error {
+    font-family: var(--font-body);
+    background: rgba(139,58,15,0.07);
+    border: 1px solid rgba(139,58,15,0.2);
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: var(--space-xl) var(--space-lg);
+        align-items: flex-start;
+    }
+
+    .contact-panel {
+        padding: var(--space-lg);
+    }
+
+    .contact-submit {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: var(--space-xl) var(--space-md);
+    }
+}
+
+/* ----------------------------------------------------------
+   VALIDATION — error states
+   ---------------------------------------------------------- */
+
+/* Error border on the input/textarea */
+.contact-field--error input,
+.contact-field--error textarea {
+    border-color: var(--color-warn) !important;
+}
+
+[data-theme="dark"] .contact-field--error input,
+[data-theme="dark"] .contact-field--error textarea {
+    box-shadow: 0 0 8px rgba(255,107,0,0.35), inset 0 0 0 1px rgba(255,107,0,0.15);
+}
+
+[data-theme="light"] .contact-field--error input,
+[data-theme="light"] .contact-field--error textarea {
+    box-shadow: 0 0 0 3px rgba(139,58,15,0.12);
+}
+
+/* Error label colour */
+.contact-field--error label {
+    color: var(--color-warn) !important;
+    text-shadow: none !important;
+}
+
+/* Inline error message */
+.contact-field__error {
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    animation: error-in 0.2s ease both;
+    color: var(--color-warn);
+}
+
+@keyframes error-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+[data-theme="dark"] .contact-field__error {
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+}
+
+[data-theme="dark"] .contact-field__error::before {
+    content: '✕';
+    font-size: 0.7rem;
+    color: var(--color-warn);
+}
+
+[data-theme="light"] .contact-field__error {
+    font-family: var(--font-body);
+}
+
+[data-theme="light"] .contact-field__error::before {
+    content: '✕';
+    font-size: 0.7rem;
+}

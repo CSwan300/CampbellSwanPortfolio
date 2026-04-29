@@ -11,21 +11,24 @@ const Resume = () => {
     };
 
     return (
-        <section id="resume">
-            <div>
+        <section id="resume" className="resume-section">
+            <div className="resume-container">
+
                 <h2>Resume</h2>
 
-                <div>
+                <div className="resume-grid">
+
                     {/* Left — info */}
-                    <div>
+                    <div className="resume-info">
                         <h3>Campbell Swan</h3>
                         <p>
                             Computer Science (Software Development) student with a strong foundation
                             in software development, data analysis, and emerging technologies.
                         </p>
 
-                        <div>
-                            <div>
+                        <div className="resume-details">
+
+                            <div className="resume-detail-block resume-education">
                                 <h4>Education</h4>
                                 <div>
                                     <p>Computing — Software Development</p>
@@ -33,7 +36,7 @@ const Resume = () => {
                                 </div>
                             </div>
 
-                            <div>
+                            <div className="resume-detail-block resume-skills">
                                 <h4>Technical Skills</h4>
                                 <ul>
                                     <li>✓ JavaScript &amp; React</li>
@@ -42,35 +45,33 @@ const Resume = () => {
                                     <li>✓ Data Analysis</li>
                                     <li>✓ Git &amp; GitHub</li>
                                     <li>✓ JVM Languages</li>
-                                    <li>✓ Docker, K8s and DevOps Technologies</li>
+                                    <li>✓ Docker, K8s &amp; DevOps</li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
 
                     {/* Right — download */}
-                    <div>
-                        <svg
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
+                    <div className="resume-download">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth={1.5}
-                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 0l-6 6m6-6l6 6"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
                             />
                         </svg>
                         <h3>Download Resume</h3>
                         <p>
                             Get a detailed overview of my experience, skills, and accomplishments.
                         </p>
-                        <button onClick={handleDownload}>
+                        <button className="resume-download-btn" onClick={handleDownload}>
                             📥 Download PDF
                         </button>
-                        <p>File: {personalInfo.resumeFile}</p>
+                        <p className="resume-filename">{personalInfo.resumeFile}</p>
                     </div>
+
                 </div>
             </div>
         </section>

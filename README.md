@@ -1,5 +1,4 @@
 # 🌟 Campbell Swan - Portfolio Website :)
-> Hello
 <div align="center">
 
   ![Profile Banner](https://avatars.githubusercontent.com/u/147725350?v=4)
