@@ -63,6 +63,7 @@
     flex-direction: column;
     gap: var(--space-2xl);
     animation: resume-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    align-items: center;
 }
 
 @keyframes resume-fade-in {
@@ -79,6 +80,7 @@
     margin: 0;
     display: inline-block;
     position: relative;
+    align-items:center;
 }
 
 [data-theme="dark"] .resume-container > h2 {

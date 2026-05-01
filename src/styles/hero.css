@@ -150,6 +150,7 @@
     flex-direction: column;
     gap: var(--space-lg);
     animation: hero-entrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    align-items: center;
 }
 
 @keyframes hero-entrance {
@@ -349,7 +350,7 @@
     height: 44px;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: var(--space-sm);
+    margin: var(--space-sm) auto 0;
     transition:
             transform var(--transition-base),
             box-shadow var(--transition-base),

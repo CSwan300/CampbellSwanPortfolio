@@ -36,16 +36,12 @@ footer {
     opacity: 0.7;
 }
 
-/* Dark: line grid matching reference screenshot */
+/* Dark: */
 [data-theme="dark"] footer::after {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image:
-            linear-gradient(rgba(0,255,65,0.07) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,65,0.07) 1px, transparent 1px);
-    background-size: 28px 28px;
 }
 
 [data-theme="light"] footer {
@@ -75,6 +71,7 @@ footer {
    INNER CONTAINER
    ---------------------------------------------------------- */
 .footer-container {
+    align-items: center;
     position: relative;
     z-index: 1;
     max-width: 1100px;

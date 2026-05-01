@@ -68,6 +68,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
+    align-items: center;
 }
 
 /* ----------------------------------------------------------
@@ -79,6 +80,7 @@
     margin: 0;
     position: relative;
     display: inline-block;
+    align-items: center;
 }
 
 [data-theme="dark"] .about-container > h2 {
