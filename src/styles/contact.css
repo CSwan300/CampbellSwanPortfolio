@@ -1,5 +1,5 @@
 /* ============================================================
-   CONTACT LINKS SECTION — contact-links.css
+   CONTACT LINKS SECTION — contact.css
    Dark  → Retro terminal: link cards as system nodes
    Light → Scotland: stone cards, heather accents
    ============================================================ */
@@ -75,6 +75,7 @@
     margin: 0;
     display: inline-block;
     position: relative;
+    align-items: center;
 }
 
 [data-theme="dark"] .contact-links-container > h2 {

@@ -41,11 +41,12 @@ const Resume = () => {
                                 <ul>
                                     <li>✓ JavaScript &amp; React</li>
                                     <li>✓ Python</li>
-                                    <li>✓ Tailwind CSS</li>
+                                    <li>✓ CSS</li>
                                     <li>✓ Data Analysis</li>
                                     <li>✓ Git &amp; GitHub</li>
                                     <li>✓ JVM Languages</li>
                                     <li>✓ Docker, K8s &amp; DevOps</li>
+                                    <li>✓ More Random Technology</li>
                                 </ul>
                             </div>
 
