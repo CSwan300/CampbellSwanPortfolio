@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 
 // Global Layout Components
 import Header from './components/Header';
@@ -29,6 +30,7 @@ function App() {
             </Routes>
 
             <Footer scrollToSection={scrollToSection} />
+            <Analytics />
         </Router>
     );
 }
