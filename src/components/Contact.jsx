@@ -47,7 +47,7 @@ const Contact = () => {
 
                     <div className="contact-links-cta-buttons">
                         <a href={`mailto:${personalInfo.email}`}>
-                            Send An Email Or Use The Form Above
+                            Send An Email Or Use The Form Below!
                         </a>
                         <a
                             href={personalInfo.linkedin}

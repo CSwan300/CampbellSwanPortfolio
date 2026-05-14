@@ -4,6 +4,25 @@ const SKILLS = [
     'Puzzles', 'Chess', 'Python', 'Rugby',
     'Data Analysis', 'Backend Development',
     'Problem Solving', 'Git & GitHub', 'Golf',
+
+    // Logical / analytical extensions
+    'Critical Thinking', 'Algorithms & Data Structures',
+    'Debugging', 'Statistical Analysis',
+
+    // Tech ecosystem
+    'APIs & Integration', 'SQL & Databases',
+    'Automation Scripting', 'Linux Basics',
+
+    // Strategy / mindset crossover
+    'Strategic Planning', 'Pattern Recognition',
+    'Decision Making Under Pressure',
+
+    // Sports-adjacent traits
+    'Teamwork', 'Discipline', 'Performance Analysis',
+
+    // Creative / exploratory (common with devs + puzzle people)
+    'Game Theory', 'Learning New Technologies',
+    'Side Project Development'
 ];
 
 const STATS = [

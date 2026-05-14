@@ -1,12 +1,12 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Resume from './components/Resume';
-import Footer from './components/Footer';
-import ContactForm from './components/Email';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Global Layout Components
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+// Page Components
+import LandingPage from './pages/LandingPage';
 
 function App() {
     const scrollToSection = (sectionId) => {
@@ -17,16 +17,19 @@ function App() {
     };
 
     return (
-        <div>
+        <Router>
             <Header scrollToSection={scrollToSection} />
-            <Hero scrollToSection={scrollToSection} />
-            <About />
-            <Projects />
-            <Contact />
-            <ContactForm />
-            <Resume />
+
+            <Routes>
+                <Route
+                    path="/"
+                    element={<LandingPage scrollToSection={scrollToSection} />}
+                />
+
+            </Routes>
+
             <Footer scrollToSection={scrollToSection} />
-        </div>
+        </Router>
     );
 }
 
