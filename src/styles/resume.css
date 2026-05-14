@@ -80,6 +80,7 @@
     margin: 0;
     display: inline-block;
     position: relative;
+    align-items:center;
 }
 
 [data-theme="dark"] .resume-container > h2 {
