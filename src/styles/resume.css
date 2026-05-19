@@ -1,6 +1,6 @@
 /* ============================================================
    RESUME SECTION — resume.css
-   Dark  → Retro terminal: system readout, data panels
+   Dark  → Retro terminal: system readout, data panels (CYBER GREEN)
    Light → Scotland: stone panels, heather accents, editorial
    ============================================================ */
 
@@ -20,14 +20,15 @@
     background: var(--color-bg-secondary);
 }
 
+/* Dark: line grid — REVERTED TO GREEN */
 [data-theme="dark"] .resume-section::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
     background-image:
-            linear-gradient(rgba(0,255,65,0.07) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,65,0.07) 1px, transparent 1px);
+            linear-gradient(rgba(0, 255, 65, 0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 65, 0.07) 1px, transparent 1px);
     background-size: 28px 28px;
 }
 
@@ -80,7 +81,6 @@
     margin: 0;
     display: inline-block;
     position: relative;
-    align-items:center;
 }
 
 [data-theme="dark"] .resume-container > h2 {
@@ -117,7 +117,6 @@
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: var(--space-xl);
-    /* Changed to stretch to ensure equal height boxes */
     align-items: stretch;
 }
 
@@ -131,7 +130,6 @@
     padding: var(--space-xl);
     border-radius: var(--radius-lg);
     animation: resume-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-    /* Ensure the box takes up full grid height */
     height: 100%;
 }
 
@@ -171,7 +169,7 @@
     color: var(--color-primary);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    text-shadow: var(--shadow-glow);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
     font-family: var(--font-mono);
 }
 
@@ -200,6 +198,103 @@
     font-style: italic;
 }
 
+/* ----------------------------------------------------------
+   RIGHT COLUMN — download panel
+   ---------------------------------------------------------- */
+.resume-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    position: relative;
+    height: 100%;
+    animation: resume-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+[data-theme="dark"] .resume-download {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-glow);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+[data-theme="light"] .resume-download {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.resume-download svg {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    transition: transform var(--transition-base), color var(--transition-base);
+}
+
+/* Dark: SVG Icon Pulse — REVERTED TO GREEN */
+[data-theme="dark"] .resume-download svg {
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.5));
+    animation: icon-pulse 3s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.4));  }
+    50%       { filter: drop-shadow(0 0 16px rgba(0, 255, 65, 0.8)); }
+}
+
+/* ----------------------------------------------------------
+   DOWNLOAD BUTTON — WITH LINE/BORDER
+   ---------------------------------------------------------- */
+.resume-download-btn {
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    width: 100%;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+}
+
+[data-theme="dark"] .resume-download-btn {
+    font-family: var(--font-mono);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-glow);
+}
+
+[data-theme="dark"] .resume-download-btn:hover {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary); /* Green border on hover */
+    box-shadow: var(--shadow-glow-strong);
+    transform: translateY(-2px);
+}
+
+[data-theme="light"] .resume-download-btn {
+    font-family: var(--font-display);
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary); /* Heather Purple border */
+}
+
+[data-theme="light"] .resume-download-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------------
+   DETAILS & RESPONSIVE
+   ---------------------------------------------------------- */
 .resume-details {
     display: flex;
     flex-direction: column;
@@ -212,7 +307,7 @@
     gap: var(--space-sm);
     padding: var(--space-md);
     border-radius: var(--radius-md);
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    transition: all var(--transition-base);
 }
 
 [data-theme="dark"] .resume-detail-block {
@@ -228,11 +323,6 @@
 [data-theme="light"] .resume-detail-block {
     background: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
-}
-
-[data-theme="light"] .resume-detail-block:hover {
-    border-color: var(--color-border-glow);
-    box-shadow: var(--shadow-glow);
 }
 
 .resume-detail-block h4 {
@@ -268,9 +358,7 @@
     line-height: 1.5;
 }
 
-.resume-education p:first-child {
-    font-weight: 600;
-}
+.resume-education p:first-child { font-weight: 600; }
 
 [data-theme="dark"] .resume-education p {
     font-family: var(--font-mono);
@@ -295,111 +383,13 @@
 
 .resume-skills ul li {
     font-size: 0.85rem;
-    transition: color var(--transition-base), transform var(--transition-fast);
+    transition: all var(--transition-fast);
     cursor: default;
 }
 
 [data-theme="dark"] .resume-skills ul li {
     font-family: var(--font-mono);
     color: var(--color-text-secondary);
-}
-
-/* ----------------------------------------------------------
-   RIGHT COLUMN — download panel
-   ---------------------------------------------------------- */
-.resume-download {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Centers content vertically within the stretched box */
-    justify-content: center;
-    text-align: center;
-    gap: var(--space-lg);
-    padding: var(--space-xl);
-    border-radius: var(--radius-lg);
-    /* Sticky is removed to ensure the border stretches fully to the bottom */
-    position: relative;
-    height: 100%;
-    animation: resume-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-}
-
-[data-theme="dark"] .resume-download {
-    background: var(--color-bg-tertiary);
-    border: 1px solid var(--color-border-glow);
-    box-shadow: var(--shadow-glow), var(--shadow-card);
-}
-
-[data-theme="light"] .resume-download {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-card);
-}
-
-.resume-download svg {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    transition: transform var(--transition-base), color var(--transition-base);
-}
-
-[data-theme="dark"] .resume-download svg {
-    color: var(--color-primary);
-    filter: drop-shadow(0 0 8px rgba(0,255,65,0.5));
-    animation: icon-pulse 3s ease-in-out infinite;
-}
-
-@keyframes icon-pulse {
-    0%, 100% { filter: drop-shadow(0 0 6px rgba(0,255,65,0.4));  }
-    50%       { filter: drop-shadow(0 0 16px rgba(0,255,65,0.8)); }
-}
-
-.resume-download h3 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    margin: 0;
-}
-
-[data-theme="dark"] .resume-download h3 {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    text-shadow: var(--shadow-glow);
-}
-
-.resume-download > p:first-of-type {
-    margin: 0;
-    line-height: 1.65;
-}
-
-[data-theme="dark"] .resume-download > p:first-of-type {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--color-text-secondary);
-}
-
-.resume-download-btn {
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-md);
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    transition:
-            background var(--transition-base),
-            box-shadow var(--transition-base),
-            transform var(--transition-fast);
-}
-
-[data-theme="dark"] .resume-download-btn {
-    font-family: var(--font-mono);
-    background: var(--color-primary);
-    color: var(--color-text-inverse);
-    box-shadow: var(--shadow-glow);
 }
 
 .resume-filename {
@@ -418,21 +408,11 @@
     color: var(--color-border-glow);
 }
 
-/* ----------------------------------------------------------
-   RESPONSIVE
-   ---------------------------------------------------------- */
 @media (max-width: 900px) {
-    .resume-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .resume-info, .resume-download {
-        height: auto;
-    }
+    .resume-grid { grid-template-columns: 1fr; }
+    .resume-info, .resume-download { height: auto; }
 }
 
 @media (max-width: 600px) {
-    .resume-skills ul {
-        grid-template-columns: 1fr;
-    }
+    .resume-skills ul { grid-template-columns: 1fr; }
 }

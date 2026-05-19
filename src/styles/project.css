@@ -293,7 +293,7 @@
 
 [data-theme="light"] .project-body h3 {
     font-size: 1.2rem;
-    color: var(--color-text);
+    color: var(--color-text-secondary);
     letter-spacing: -0.01em;
 }
 
