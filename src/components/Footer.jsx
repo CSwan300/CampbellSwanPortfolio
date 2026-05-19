@@ -1,13 +1,31 @@
+import { useState, useEffect } from 'react';
 import { personalInfo } from '../data/personalInfo';
 
 const Footer = ({ scrollToSection }) => {
     const currentYear = new Date().getFullYear();
-    const quickLinks = [
-        { label: 'About',    id: 'about'    },
-        { label: 'Projects', id: 'projects' },
-        { label: 'Contact',  id: 'contact'  },
-        { label: 'Resume',   id: 'resume'   },
-    ];
+    const [dynamicLinks, setDynamicLinks] = useState([]);
+
+    useEffect(() => {
+        const sectionElements = Array.from(document.querySelectorAll('section[id]'));
+        // track the ids seen already if not it sometimes will dupe
+        const seenIds = new Set();
+
+        const links = sectionElements
+            .filter(section => {
+                if (seenIds.has(section.id)) {
+                    return false;
+                }
+                seenIds.add(section.id);
+                return true;
+            })
+            .map(section => ({
+                // Formats the ID: 'about-me' -> 'About-me'
+                label: section.id.charAt(0).toUpperCase() + section.id.slice(1),
+                id: section.id
+            }));
+
+        setDynamicLinks(links);
+    }, []);
 
     return (
         <footer>
@@ -15,21 +33,24 @@ const Footer = ({ scrollToSection }) => {
 
                 <div className="footer-top">
 
-                    {/* Brand */}
+                    {/* Brand / Intro */}
                     <div className="footer-brand">
-                        <span>Campbell Swan</span>
+                        <span>{personalInfo.name || "Campbell Swan"}</span>
                         <p>
                             Building the future through code, suffering and occasionally innovation.
                         </p>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Auto-Generated Quick Links */}
                     <div className="footer-col">
                         <h4>Quick Links</h4>
                         <ul>
-                            {quickLinks.map((link) => (
+                            {dynamicLinks.map((link) => (
                                 <li key={link.id}>
-                                    <button onClick={() => scrollToSection(link.id)}>
+                                    <button
+                                        onClick={() => scrollToSection(link.id)}
+                                        className="footer-link-btn"
+                                    >
                                         {link.label}
                                     </button>
                                 </li>
@@ -37,7 +58,7 @@ const Footer = ({ scrollToSection }) => {
                         </ul>
                     </div>
 
-                    {/* Connect */}
+                    {/* Social/Connect */}
                     <div className="footer-col">
                         <h4>Connect</h4>
                         <ul>

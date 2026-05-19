@@ -3,50 +3,72 @@ import { useState, useEffect } from 'react';
 const Header = ({ scrollToSection }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(true);
+    const [navItems, setNavItems] = useState([]);
 
-    const navItems = [
-        { label: 'About',    id: 'about'    },
-        { label: 'Projects', id: 'projects' },
-        { label: 'Contact',  id: 'contact'  },
-        { label: 'Resume',   id: 'resume'   },
-    ];
+    useEffect(() => {
+        const sectionElements = Array.from(document.querySelectorAll('section[id]'));
+        const seenIds = new Set();
+
+        const dynamicLinks = sectionElements
+            .filter(section => {
+                if (seenIds.has(section.id)) return false;
+                seenIds.add(section.id);
+                return true;
+            })
+            .map(section => ({
+                label: section.id.charAt(0).toUpperCase() + section.id.slice(1),
+                id: section.id
+            }));
+
+        setNavItems(dynamicLinks);
+    }, []);
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     }, [isDarkMode]);
 
+    const handleLogoClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // If you're using React Router, you could also use navigate('/') here
+    };
+
     return (
         <header>
-            <nav>
+            <nav className="nav-container">
+                {/* Logo / Brand - Always links to top */}
                 <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={handleLogoClick}
+                    className="brand-logo"
                     aria-label="Scroll to top"
                 >
-                    SWAN
+                    CJFS
                 </button>
 
-                <ul>
+                {/* Desktop Navigation */}
+                <ul className="desktop-menu">
                     {navItems.map((item) => (
                         <li key={item.id}>
-                            <button
-                                onClick={() => scrollToSection(item.id)}
-                            >
+                            <button onClick={() => scrollToSection(item.id)}>
                                 {item.label}
                             </button>
                         </li>
                     ))}
                 </ul>
 
-                <div>
+                <div className="nav-actions">
+                    {/* Theme Toggle */}
                     <button
                         onClick={() => setIsDarkMode(!isDarkMode)}
+                        className="theme-toggle"
                         aria-label="Toggle theme"
                     >
                         {isDarkMode ? '☀️' : '🌙'}
                     </button>
 
+                    {/* Mobile Hamburger */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="mobile-menu-toggle"
                         aria-label="Toggle mobile menu"
                     >
                         ☰
@@ -54,8 +76,9 @@ const Header = ({ scrollToSection }) => {
                 </div>
             </nav>
 
+            {/* Mobile Dropdown Menu */}
             {isMobileMenuOpen && (
-                <div>
+                <div className="mobile-menu">
                     <ul>
                         {navItems.map((item) => (
                             <li key={item.id}>
