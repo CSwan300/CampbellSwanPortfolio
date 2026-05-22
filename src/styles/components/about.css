@@ -1,0 +1,240 @@
+/* ============================================================
+   ABOUT — about.css
+   ============================================================ */
+
+.about-section {
+    position: relative;
+    padding: 10vh 0 8vh;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ----------------------------------------------------------
+   SCROLL FADE
+   ---------------------------------------------------------- */
+.scroll-fade {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+@supports (animation-timeline: view()) {
+    .scroll-fade {
+        animation: fadeScroll linear both;
+        animation-timeline: view();
+        animation-range: entry 5% cover 50% exit 90%;
+        will-change: opacity, transform, filter;
+    }
+}
+
+@keyframes fadeScroll {
+    0%      { opacity: 0; filter: blur(10px); transform: translateY(50px); }
+    35%,65% { opacity: 1; filter: blur(0);    transform: translateY(0); }
+    100%    { opacity: 0; filter: blur(10px); transform: translateY(-50px); }
+}
+
+/* ----------------------------------------------------------
+   ENTRANCE ANIMATIONS
+   ---------------------------------------------------------- */
+.about-section {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.about-section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----------------------------------------------------------
+   HEADING
+   ---------------------------------------------------------- */
+.about-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: var(--color-primary);
+    margin: 0 0 2.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* ----------------------------------------------------------
+   GRID
+   ---------------------------------------------------------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* ----------------------------------------------------------
+   LEFT COLUMN
+   ---------------------------------------------------------- */
+.about-left p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0 0 2rem;
+}
+
+.about-skills h3 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 1.25rem;
+}
+
+.about-skills ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+}
+
+.skill-item {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.about-section.animate-in .skill-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.skill-item span {
+    color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------
+   TERMINAL & SCOTLAND FLAG (RIGHT COLUMN)
+   ---------------------------------------------------------- */
+.about-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Dark Mode Appearance */
+[data-theme="dark"] .about-image-placeholder {
+    background: rgba(2, 5, 2, 0.95);
+    border: 1px solid var(--color-primary-dim);
+}
+
+/* Light Mode Appearance: Scotland Flag (Saltire) */
+[data-theme="light"] .about-image-placeholder {
+    background-color: #005EB8;
+    background-image:
+            linear-gradient(45deg, transparent 45%, #ffffff 45%, #ffffff 55%, transparent 55%),
+            linear-gradient(-45deg, transparent 45%, #ffffff 45%, #ffffff 55%, transparent 55%);
+    background-size: 100% 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Terminal Body Content */
+.terminal-body {
+    padding: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    height: 100%;
+    display: block; /* Allows text to fill from top down */
+    overflow: hidden;
+    color: var(--color-primary);
+}
+
+/* Hide text entirely on Light Mode */
+[data-theme="light"] .terminal-body {
+    display: none;
+}
+
+.terminal-line {
+    margin-bottom: 3px;
+    opacity: 0.8;
+    white-space: nowrap;
+    width: 100%;
+    animation: lineIn 0.1s ease-out;
+}
+
+.terminal-prompt {
+    color: var(--color-primary-dim);
+    margin-right: 6px;
+    font-weight: bold;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: var(--color-primary);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes lineIn {
+    from { opacity: 0; transform: translateX(-5px); }
+    to { opacity: 0.8; transform: translateX(0); }
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ----------------------------------------------------------
+   STATS
+   ---------------------------------------------------------- */
+.about-stats dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.stat-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.about-section.animate-in .stat-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-item dd {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.stat-item dt {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-image-placeholder { aspect-ratio: 16 / 9; }
+    .scroll-fade { animation: none !important; opacity: 1 !important; transform: none !important; }
+}

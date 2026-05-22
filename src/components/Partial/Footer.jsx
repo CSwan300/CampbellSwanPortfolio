@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { personalInfo } from '../data/personalInfo';
+import { personalInfo } from '../../data/personalInfo.js';
 
 const Footer = ({ scrollToSection }) => {
     const currentYear = new Date().getFullYear();
@@ -37,7 +37,7 @@ const Footer = ({ scrollToSection }) => {
                     <div className="footer-brand">
                         <span>{personalInfo.name || "Campbell Swan"}</span>
                         <p>
-                            Building the future through code, suffering and occasionally innovation.
+                            Building the future through code, suffering and occasionally innovation and of course a dislike of css.
                         </p>
                     </div>
 
