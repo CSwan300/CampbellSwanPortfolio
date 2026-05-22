@@ -4,6 +4,16 @@ const Header = ({ scrollToSection }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [navItems, setNavItems] = useState([]);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    // Track scroll position to change header styling
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         const sectionElements = Array.from(document.querySelectorAll('section[id]'));
@@ -29,13 +39,13 @@ const Header = ({ scrollToSection }) => {
 
     const handleLogoClick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // If you're using React Router, you could also use navigate('/') here
+        setIsMobileMenuOpen(false);
     };
 
     return (
-        <header>
+        // Added dynamic 'scrolled' class
+        <header className={isScrolled ? 'scrolled' : ''}>
             <nav className="nav-container">
-                {/* Logo / Brand - Always links to top */}
                 <button
                     onClick={handleLogoClick}
                     className="brand-logo"
@@ -44,7 +54,6 @@ const Header = ({ scrollToSection }) => {
                     CJFS
                 </button>
 
-                {/* Desktop Navigation */}
                 <ul className="desktop-menu">
                     {navItems.map((item) => (
                         <li key={item.id}>
@@ -56,7 +65,6 @@ const Header = ({ scrollToSection }) => {
                 </ul>
 
                 <div className="nav-actions">
-                    {/* Theme Toggle */}
                     <button
                         onClick={() => setIsDarkMode(!isDarkMode)}
                         className="theme-toggle"
@@ -65,18 +73,17 @@ const Header = ({ scrollToSection }) => {
                         {isDarkMode ? '☀️' : '🌙'}
                     </button>
 
-                    {/* Mobile Hamburger */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="mobile-menu-toggle"
                         aria-label="Toggle mobile menu"
                     >
-                        ☰
+                        {/* Dynamic icon for menu state */}
+                        {isMobileMenuOpen ? '✕' : '☰'}
                     </button>
                 </div>
             </nav>
 
-            {/* Mobile Dropdown Menu */}
             {isMobileMenuOpen && (
                 <div className="mobile-menu">
                     <ul>

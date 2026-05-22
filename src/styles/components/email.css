@@ -1,0 +1,168 @@
+/* ============================================================
+   CONTACT FORM — email.css
+   ============================================================ */
+
+.contact-section {
+    position: relative;
+    padding: 10vh 0;
+    background-color: transparent; /* Allows background component to shine through */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ensures the section feels substantial */
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the Heading and the Form Card */
+}
+
+/* ----------------------------------------------------------
+   HEADING
+   ---------------------------------------------------------- */
+.contact-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--color-primary);
+    margin: 0 0 3rem;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------
+   FORM PANEL (Centered & Glassmorphism)
+   ---------------------------------------------------------- */
+.contact-card-wrap {
+    width: 100%;
+    max-width: 700px; /* Optimal width for a centered single-column form */
+    margin: 0 auto;
+}
+
+.contact-panel {
+    padding: 3rem;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-primary-dim);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .contact-panel {
+    background: rgba(2, 5, 2, 0.6);
+}
+
+/* ----------------------------------------------------------
+   MULTI-TRIGGER REVEAL SYSTEM
+   ---------------------------------------------------------- */
+.reveal {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(30px) scale(0.97);
+    transition:
+            opacity 0.8s ease-out,
+            transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+            filter 0.8s ease-out;
+    will-change: transform, opacity, filter;
+}
+
+.reveal.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+}
+
+/* Build Sequence Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ----------------------------------------------------------
+   INPUT FIELDS
+   ---------------------------------------------------------- */
+.contact-field {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-field label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    outline: none;
+    background: rgba(0, 20, 0, 0.3);
+    border: 1px solid var(--color-primary-dim);
+    color: var(--color-primary);
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-color: var(--color-primary);
+    background: rgba(0, 255, 65, 0.05);
+    box-shadow: 0 0 15px rgba(var(--color-primary-rgb), 0.1);
+}
+
+/* ----------------------------------------------------------
+   SUBMIT BUTTON (Fixed Contrast)
+   ---------------------------------------------------------- */
+.contact-submit {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 1.25rem;
+    background: var(--color-primary);
+    color: #020502; /* Dark text for readability on neon */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-submit:hover:not(:disabled) {
+    box-shadow: 0 0 20px var(--color-primary-dim);
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.contact-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .contact-panel {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-section h2 {
+        font-size: 2.8rem;
+    }
+}

@@ -1,0 +1,205 @@
+/* ============================================================
+   RESUME / CONTACT — resume.css
+   ============================================================ */
+
+.resume-section {
+    position: relative;
+    padding: 10vh 0 8vh;
+    background-color: transparent; /* Allows Background component to show through */
+}
+
+.resume-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ----------------------------------------------------------
+   GRID LAYOUT
+   ---------------------------------------------------------- */
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* ----------------------------------------------------------
+   LEFT SIDE — INFO CONTENT
+   ---------------------------------------------------------- */
+.resume-info h3 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.resume-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+}
+
+.resume-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.resume-detail-block h4 {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-primary-dim);
+    padding-bottom: 0.5rem;
+}
+
+/* ----------------------------------------------------------
+   RIGHT SIDE — STICKY DOWNLOAD BOX
+   ---------------------------------------------------------- */
+.resume-download {
+    padding: 3rem 2rem;
+    border: 1px solid var(--color-primary-dim);
+    border-radius: 8px;
+    text-align: center;
+    position: sticky;
+    top: 100px;
+    background: rgba(255, 255, 255, 0.03); /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.resume-download svg {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.resume-download h3 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.resume-filename {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+/* ----------------------------------------------------------
+   BUTTON STYLES (Fixed Contrast)
+   ---------------------------------------------------------- */
+.resume-download-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-primary);
+    color: #020502; /* High contrast dark text for neon background */
+    border: 1px solid var(--color-primary);
+    font-family: var(--font-mono);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.resume-download-btn:hover {
+    background: transparent;
+    color: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary-dim);
+}
+
+.contact-links-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-links-cta-buttons a {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.contact-links-cta-buttons a:hover {
+    background: var(--color-primary);
+    color: #020502;
+}
+
+/* ----------------------------------------------------------
+   BUILD-IT-SELF ANIMATIONS (DESKTOP ONLY)
+   ---------------------------------------------------------- */
+@media (min-width: 901px) {
+    .reveal {
+        opacity: 0;
+        filter: blur(12px);
+        transform: translateY(40px) scale(0.97);
+        transition:
+                opacity 0.8s ease-out,
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.8s ease-out;
+        will-change: transform, opacity, filter;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+    }
+
+    .reveal-left { transform: translateX(-40px) scale(0.97); }
+    .reveal-right { transform: translateX(40px) scale(0.97); }
+
+    .reveal-left.active, .reveal-right.active {
+        transform: translateX(0) scale(1);
+    }
+
+    /* Stagger Delays for Sequential Building */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+}
+
+/* ----------------------------------------------------------
+   MOBILE RESPONSIVENESS
+   ---------------------------------------------------------- */
+@media (max-width: 900px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .resume-info {
+        order: 1; /* Contact info first */
+    }
+
+    .resume-download {
+        order: 2; /* Resume box second */
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Disable animations on mobile for instant visibility and performance */
+    .reveal {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
