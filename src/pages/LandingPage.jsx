@@ -5,9 +5,6 @@ import Projects from '../components/HomePage/Projects.jsx';
 import Resume from '../components/HomePage/Contact.jsx';
 import ContactForm from '../components/HomePage/Email.jsx';
 import Background from '../components/Misc/Background.jsx';
-
-
-
 function LandingPage({ scrollToSection }) {
     return (
         <>
