@@ -51,7 +51,7 @@ const Header = ({ scrollToSection }) => {
                     className="brand-logo"
                     aria-label="Scroll to top"
                 >
-                    CJFS
+                    Campbell
                 </button>
 
                 <ul className="desktop-menu">
