@@ -28,9 +28,7 @@ const Hero = ({ scrollToSection }) => {
 
                     <div className="hero-bio-wrap">
                         <p className="hero-bio">
-                            Building useful things with code. I'm passionate about technology, enjoy
-                            experimenting with new tools and frameworks, and love turning ideas into
-                            practical, enjoyable digital experiences.
+                            Software Engineer focused on building robust full-stack applications from the ground up. I approach architecture the way I approach my golf swing: with patience, repetition, and the quiet understanding that it’ll probably take a few attempts.
                         </p>
                     </div>
 
