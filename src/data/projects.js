@@ -4,7 +4,7 @@ export const projects = [
         title: "Bias Auditor",
         description: "A fairness auditing tool detecting algorithmic bias using the Four-Fifths Rule. Features a containerised full-stack architecture with a React frontend, 96% backend test coverage, and automated risk scoring.",
         technologies: ["Python", "FastAPI", "React", "TypeScript", "Pandas", "Docker", "GitHub Actions", "CI/CD", "Personal Project"],
-        github: "https://github.com/CSwan300/Bias-Auditor",
+        github: "https://github.com/CSwan300/BiasAuditor",
         demo: null,
         image: "./images/bias.png"
     },
