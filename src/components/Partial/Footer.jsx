@@ -36,8 +36,8 @@ const Footer = ({ scrollToSection }) => {
                     {/* Brand / Intro */}
                     <div className="footer-brand">
                         <span>{personalInfo.name || "Campbell Swan"}</span>
-                        <p>
-                            Building the future through code, suffering and occasionally innovation and of course a dislike of css.
+                        <p> 
+                            "Hardware eventually fails. Software eventually works." – Michael Hartung
                         </p>
                     </div>
 
